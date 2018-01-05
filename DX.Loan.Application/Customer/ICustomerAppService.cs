@@ -1,0 +1,18 @@
+﻿using System.Threading.Tasks;
+using Abp.Application.Services;
+using DX.Loan.Friendships.Dto;
+using Abp.Application.Services.Dto;
+using DX.Loan.Customer.Dto;
+
+namespace DX.Loan.Customer
+{
+    public interface ICustomerAppService : IApplicationService
+    {
+
+        ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input);
+
+        void CreateCustomer(CustomerCreateInput input);
+
+
+    }
+}
