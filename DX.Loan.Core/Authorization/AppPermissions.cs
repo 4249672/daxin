@@ -38,7 +38,7 @@
 
         public const string Pages_Administration_HangfireDashboard = "Pages.Administration.HangfireDashboard";
 
-        //public const string Pages_Administration_CustomerMaint = "Pages.Administration.CustomerMaint";
+        public const string Pages_Administration_Customer = "Pages.Administration.Customer";
 
 
 

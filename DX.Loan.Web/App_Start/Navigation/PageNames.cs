@@ -31,6 +31,8 @@
             public static class Customer {
                 public const string CustomerMaintenance = "Administration.CustomerMaintenance";
 
+
+
             }
         }
 

@@ -281,6 +281,9 @@
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
 
-    <text name="CustomerMaintenance">客户信息维护</text>
+    <text name="Customer" value="客户信息维护"></text>
+  
+
+
   </texts>
 </localizationDictionary>

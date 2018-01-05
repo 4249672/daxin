@@ -16,6 +16,7 @@ using DX.Loan.Web.Areas.Mpa.Models.Customer;
 
 namespace DX.Loan.Web.Areas.Mpa.Controllers
 {
+    [AbpMvcAuthorize(AppPermissions.Pages_Administration_Customer)]
     public class CustomerController : LoanControllerBase
     {
 

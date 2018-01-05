@@ -37,12 +37,19 @@ namespace DX.Loan.Web.Areas.Mpa.Startup
                     )
                 ).AddItem(new MenuItemDefinition(
                     PageNames.App.Customer.CustomerMaintenance,
-                    L("CustomerMaintenance"),
-                    url: "Mpa/CustomerMaintenance",
+                    L("Customer"),
+                    url: "Mpa/Customer",
                     icon: "glyphicon glyphicon-book",
-                    requiredPermissionName: AppPermissions.Pages_Tenant_Dashboard
+                    requiredPermissionName: AppPermissions.Pages_Administration_Customer
                     )
                 )
+                //.AddItem(new MenuItemDefinition(
+                //    PageNames.App.Tenant.Test,//一个常量，控制菜单是否被选中
+                //    L("Test"),//菜单显示名称，在语言文件中配置
+                //    url: "Mpa/Test",//菜单路径
+                //    icon: "icon-globe",//菜单图标
+                //    requiredPermissionName: AppPermissions.Pages_Administration_Test//菜单权限，登录用户所在角色有此权限才会显示出来
+                //    ))
                 .AddItem(new MenuItemDefinition(
                     PageNames.App.Common.Administration,
                     L("Administration"),
