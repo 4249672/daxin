@@ -10,28 +10,28 @@
 }
 @section Styles
 {
-    @Html.IncludeStyle("~/Areas/Mpa/Views/Roles/Index.min.css")
+    @*@Html.IncludeStyle("~/Areas/Mpa/Views/Roles/Index.min.css")*@
 }
 @section Scripts
 {
     @*@Html.IncludeScript("~/Areas/Mpa/Views/Common/_PermissionTree.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/Roles/_CreateOrEditModal.js")*@
-    @Html.IncludeScript("~/Areas/Mpa/Views/Roles/Index.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Customer/Index.js")
 }
 <div class="row margin-bottom-5">
     <div class="col-xs-6">
         <div class="page-head">
             <div class="page-title">
                 <h1>
-                    <span>@L("Roles")</span> <small>@L("RolesHeaderInfo")</small>
+                    <span>@L("Customer")</span> 
                 </h1>
             </div>
         </div>
     </div>
     <div class="col-xs-6 text-right">
-        @if (IsGranted(AppPermissions.Pages_Administration_Roles_Create))
+        @if (IsGranted(AppPermissions.Pages_Administration_Customer_Create))
         {
-            <button id="CreateNewRoleButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewRole")</button>
+            <button id="CreateNewButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("Create")</button>
         }
     </div>
 </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-xs-6">
                             <div class="form-group">
-                                <button id="RefreshRolesButton" class="btn btn-default" style="display: block; width: 100%"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                                <button id="RefreshButton" class="btn btn-default" style="display: block; width: 100%"><i class="fa fa-refresh"></i> @L("Refresh")</button>
                             </div>
                         </div>
                     </div>

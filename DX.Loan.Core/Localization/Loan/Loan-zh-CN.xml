@@ -282,8 +282,11 @@
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
 
     <text name="Customer" value="客户信息维护"></text>
-  
-
-
+    <text name="IdCard" value="身份证号"></text>
+    <text name="Age" value="年龄"></text>
+    <text name="Tel" value="手机号"></text>
+    <text name="WeChat" value="微信号"></text>
+    <text name="Create" value="新增"></text>
+    
   </texts>
 </localizationDictionary>

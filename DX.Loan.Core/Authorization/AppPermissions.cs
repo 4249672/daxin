@@ -39,7 +39,9 @@
         public const string Pages_Administration_HangfireDashboard = "Pages.Administration.HangfireDashboard";
 
         public const string Pages_Administration_Customer = "Pages.Administration.Customer";
-
+        public const string Pages_Administration_Customer_Create = "Pages.Administration.Customer.Create";
+        public const string Pages_Administration_Customer_Edit = "Pages.Administration.Customer.Edit";
+        public const string Pages_Administration_Customer_Delete = "Pages.Administration.Customer.Delete";
 
 
         //TENANT-SPECIFIC PERMISSIONS
