@@ -83,10 +83,10 @@ namespace DX.Loan.Authorization
             administration.CreateChildPermission(AppPermissions.Pages_Administration_HangfireDashboard, L("HangfireDashboard"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
 
             //客户信息维护模块
-            administration.CreateChildPermission(AppPermissions.Pages_Administration_Customer, L("Customer"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
-            administration.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Create, L("Create"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
-            administration.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Edit, L("Edit"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
-            administration.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Delete, L("Delete"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
+            var customers = administration.CreateChildPermission(AppPermissions.Pages_Administration_Customer, L("Customer"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
+            customers.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Create, L("Create"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
+            customers.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Edit, L("Edit"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
+            customers.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Delete, L("Delete"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
 
 
         }

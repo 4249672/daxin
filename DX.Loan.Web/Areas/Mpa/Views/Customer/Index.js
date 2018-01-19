@@ -10,11 +10,11 @@
             'delete': abp.auth.hasPermission('Pages.Administration.Customer.Delete')
         };
 
-        //var _createOrEditModal = new app.ModalManager({
-        //    viewUrl: abp.appPath + 'Mpa/Roles/CreateOrEditModal',
-        //    scriptUrl: abp.appPath + 'Areas/Mpa/Views/Roles/_CreateOrEditModal.js',
-        //    modalClass: 'CreateOrEditRoleModal'
-        //});
+        var _createOrEditModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'Mpa/Customer/CreateOrEditModal',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/Customer/_CreateOrEditModal.js',
+            modalClass: 'CreateOrEditRoleModal'
+        });
 
         _$rolesTable.jtable({
 
@@ -148,5 +148,15 @@
         //});
 
         getRoles();
+
+        $.getJSON('/libs/bootstrap-chinese-region/sql_areas.json', function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var area = { id: data[i].id, name: data[i].cname, level: data[i].level, parentId: data[i].upid };
+                data[i] = area;
+            }
+            $('.bs-chinese-region').chineseRegion('source', data).on('completed.bs.chinese-region', function (e, areas) {
+                $(this).find('[name=address]').val(areas[areas.length - 1].id);
+            });
+        });
     });
 })();
