@@ -101,13 +101,13 @@
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input class="form-control@(!Model.RecordCharge.HasValue ? "" : " edited")" type="text" name="Name" value="@Model.RecordCharge" required maxlength="10" />
+            <input class="form-control@(!Model.RecordCharge.HasValue ? "" : " edited")" type="text" name="RecordCharge" value="@Model.RecordCharge" required maxlength="10" />
             <label>@L("RecordCharge")</label>
         </div>
 
         <div class="md-checkbox-list">
             <div class="md-checkbox">
-                <input class="md-check" id="IsComplete" type="checkbox" name="IsComplete" value="true" @Html.Raw(!Model.IsEditMode || Model.IsComplete == 1 ? "checked=\"checked\"" : "")>
+                <input class="md-check" id="IsComplete" type="checkbox" name="IsComplete" value="1" @Html.Raw(!Model.IsEditMode || Model.IsComplete == 1 ? "checked=\"checked\"" : "")>
                 <label for="IsComplete">
                     <span class="inc"></span>
                     <span class="check"></span>

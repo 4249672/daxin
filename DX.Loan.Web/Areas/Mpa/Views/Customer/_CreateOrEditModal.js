@@ -7,7 +7,7 @@
 
         this.init = function (modalManager) {
             _modalManager = modalManager;
-
+            _$customerForm = _modalManager.getModal().find('form[name=CustomerForm]');
             _modalManager.getModal()
                 .find('#CreditRating')
                 .selectpicker({
@@ -15,7 +15,7 @@
                     tickIcon: "fa fa-check"
                 });
 
-            _$customerForm = _modalManager.getModal().find('form[name=CustomerForm]');
+            
         };
 
         this.save = function () {
@@ -24,8 +24,9 @@
             }
 
             var customer = _$customerForm.serializeFormToObject();
+            debugger
             _modalManager.setBusy(true);
-            customerServ.createOrUpdateCustomer({ customer: customer }, { type:"POST"}).done(function () {
+            customerServ.createOrUpdateCustomer({ customer: customer }).done(function () {
                 abp.notify.info(app.localize("SavedSuccessfully"));
                 _modalManager.close();
                 abp.event.trigger("app.createCustomerModalSaved");
