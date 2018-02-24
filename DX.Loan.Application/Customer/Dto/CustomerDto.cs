@@ -9,6 +9,8 @@ namespace DX.Loan.Customer
     {
         public string Name { get; set; }
 
+        public string CustomerNo { get; set; }
+
         public string Area { get; set; }
 
         public int? Age { get; set; }
@@ -21,7 +23,7 @@ namespace DX.Loan.Customer
         //芝麻分
         public int? SesameScore { get; set; }
 
-        public string CreditRating { get; set; }
+        public int? CreditRating { get; set; }
 
         public DateTime? ApplicationDate { get; set; }
 
@@ -35,6 +37,9 @@ namespace DX.Loan.Customer
         public string AppEquipment { get; set; }
         //来源
         public string Source { get; set; }
+
+        //信息是否完整
+        public int? IsComplete { get; set; }
 
         //交易次数，被售出的次数
         public int? TransTimes { get; set; }

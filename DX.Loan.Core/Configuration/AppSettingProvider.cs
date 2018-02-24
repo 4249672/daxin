@@ -39,8 +39,10 @@ namespace DX.Loan.Configuration
                         //Tenant settings
                         new SettingDefinition(AppSettings.UserManagement.AllowSelfRegistration, ConfigurationManager.AppSettings[AppSettings.UserManagement.AllowSelfRegistration] ?? "true", scopes: SettingScopes.Tenant),
                         new SettingDefinition(AppSettings.UserManagement.IsNewRegisteredUserActiveByDefault, ConfigurationManager.AppSettings[AppSettings.UserManagement.IsNewRegisteredUserActiveByDefault] ?? "false", scopes: SettingScopes.Tenant),
-                        new SettingDefinition(AppSettings.UserManagement.UseCaptchaOnRegistration, ConfigurationManager.AppSettings[AppSettings.UserManagement.UseCaptchaOnRegistration] ?? "true", scopes: SettingScopes.Tenant)
-                   };
+                        new SettingDefinition(AppSettings.UserManagement.UseCaptchaOnRegistration, ConfigurationManager.AppSettings[AppSettings.UserManagement.UseCaptchaOnRegistration] ?? "true", scopes: SettingScopes.Tenant),
+
+                        new SettingDefinition(AppSettings.General.RecordChargeFee,ConfigurationManager.AppSettings[AppSettings.General.RecordChargeFee]??"1")
+                    };
         }
     }
 }

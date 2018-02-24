@@ -470,6 +470,18 @@
     <Compile Include="Migrations\201801040717026_2018-1-4_modiftyEntity.Designer.cs">
       <DependentUpon>201801040717026_2018-1-4_modiftyEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802210839036_CreditRatingUpdate_20180221.cs" />
+    <Compile Include="Migrations\201802210839036_CreditRatingUpdate_20180221.Designer.cs">
+      <DependentUpon>201802210839036_CreditRatingUpdate_20180221.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802221729125_20180223.cs" />
+    <Compile Include="Migrations\201802221729125_20180223.Designer.cs">
+      <DependentUpon>201802221729125_20180223.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802241152133_20180224.cs" />
+    <Compile Include="Migrations\201802241152133_20180224.Designer.cs">
+      <DependentUpon>201802241152133_20180224.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="LoanDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -680,6 +692,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801040717026_2018-1-4_modiftyEntity.resx">
       <DependentUpon>201801040717026_2018-1-4_modiftyEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802210839036_CreditRatingUpdate_20180221.resx">
+      <DependentUpon>201802210839036_CreditRatingUpdate_20180221.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802221729125_20180223.resx">
+      <DependentUpon>201802221729125_20180223.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802241152133_20180224.resx">
+      <DependentUpon>201802241152133_20180224.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

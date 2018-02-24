@@ -11,8 +11,10 @@ namespace DX.Loan.Customer
 
         ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input);
 
-        void CreateCustomer(CustomerCreateInput input);
+        void CreateOrUpdateCustomer(CreateOrUpdateCustomerInput input);
 
+        CustomerEditDto GetCustomerForEdit(NullableIdDto input);
 
+        void DeleteCustomer(EntityDto input);
     }
 }

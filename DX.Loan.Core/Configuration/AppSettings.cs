@@ -8,6 +8,9 @@
     {
         public static class General
         {
+            public const string RecordChargeFee = "App.General.RecordChargeFee"; //Customer 每条记录的售价
+
+
             //no setting yet
         }
 

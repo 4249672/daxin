@@ -47,7 +47,7 @@ namespace DX.Loan.Migrations.Seed.Host
                         UserName = User.AdminUserName,
                         Name = "admin",
                         Surname = "admin",
-                        EmailAddress = "",//admin@aspnetzero.com
+                        EmailAddress = "admin@aspnetzero.com",
                         IsEmailConfirmed = true,
                         ShouldChangePasswordOnNextLogin = true,
                         IsActive = true,

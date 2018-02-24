@@ -208,8 +208,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer\CustomerAppService.cs" />
+    <Compile Include="Customer\Dto\CreateOrUpdateCustomerInput.cs" />
     <Compile Include="Customer\Dto\CustomerCreateInput.cs" />
     <Compile Include="Customer\Dto\CustomerDto.cs" />
+    <Compile Include="Customer\Dto\CustomerEditDto.cs" />
     <Compile Include="Customer\Dto\SearchCustomerInput.cs" />
     <Compile Include="Customer\ICustomerAppService.cs" />
     <Compile Include="LoanApplicationModule.cs" />

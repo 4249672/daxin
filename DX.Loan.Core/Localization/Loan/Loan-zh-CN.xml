@@ -287,6 +287,20 @@
     <text name="Tel" value="手机号"></text>
     <text name="WeChat" value="微信号"></text>
     <text name="Create" value="新增"></text>
+    <text name="Area" value="地区"></text>
+    
+    <text name="Interest" value="预支付的利息"></text>
+    <text name="DebitAmount" value="预计贷款金额"></text>
+    <text name="SesameScore" value="芝麻分"></text>
+    <text name="CreditRating" value="信用评级"></text>
+    <text name="ApplicationDate" value="申请日期"></text>
+    <text name="QQ" value="QQ"></text>
+    <text name="AppEquipment" value="申请设备"></text>
+    <text name="TransTimes" value="交易次数"></text>
+    <text name="RecordCharge" value="此条价格"></text>
+    <text name="InfoComplete" value="信息是否完整"></text>
+    <text name="CustomerDeleteWarningMessage" value="贷款人信息 {0} 将被删除" />
+    
     
   </texts>
 </localizationDictionary>

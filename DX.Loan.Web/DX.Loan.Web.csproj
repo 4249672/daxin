@@ -3141,6 +3141,7 @@
     <Compile Include="Areas\Mpa\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Mpa\Controllers\CustomerMaintenanceController.cs" />
     <Compile Include="Areas\Mpa\Models\Customer\CustomerListViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Customer\CustomerViewModel.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />

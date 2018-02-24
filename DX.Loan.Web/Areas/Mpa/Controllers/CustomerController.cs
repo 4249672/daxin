@@ -40,10 +40,10 @@ namespace DX.Loan.Web.Areas.Mpa.Controllers
         [AbpMvcAuthorize(AppPermissions.Pages_Administration_Customer_Create, AppPermissions.Pages_Administration_Customer_Edit)]
         public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
-            var output = await _customerAppService.get(new NullableIdDto { Id = id });
-            var viewModel = new CreateOrEditRoleModalViewModel(output);
+            var output = _customerAppService.GetCustomerForEdit(new NullableIdDto { Id = id });
+            var viewModel = new CustomerViewModel(output);
 
-            return PartialView("_CreateOrEditModal", viewModel);
+            return  PartialView("_CreateOrEditModal",viewModel);
         }
     }
 }

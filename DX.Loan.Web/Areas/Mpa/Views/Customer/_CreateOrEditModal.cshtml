@@ -1,18 +1,26 @@
 ﻿@using DX.Loan.Web.Areas.Mpa.Models.Common.Modals
+@using Abp.Extensions
+@model DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerViewModel
 
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("新建"))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("Edit")) : L("CreateNew")))
 
 <div class="modal-body">
-    <form role="form" novalidate class="form-validation">
+    <form role="form" name="CustomerForm" novalidate class="form-validation">
+        @if (Model.IsEditMode)
+    {
+        <input type="hidden" name="Id" value="@Model.Id" />
+}
+
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input class="form-control" type="text" name="Name" required maxlength="20" />
+            <input class="form-control@(Model.Name.IsNullOrEmpty() ? "" : " edited")" type="text" name="Name" value="@Model.Name" required maxlength="20" />
             <label>@L("Name")</label>
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <div class="bs-chinese-region flat dropdown" data-min-level="1" data-max-level="2" data-def-val="[name=address]">
-                <input type="text" class="form-control" id="address" placeholder="选择你的地区" data-toggle="dropdown" readonly="">
-                <input type="hidden" class="form-control" name="address" value="440103">
+            <label>@L("Area")</label>
+            <div class="bs-chinese-region flat dropdown" data-min-level="1" data-max-level="2" data-def-val="[name=Area]">
+                <input type="text" class="form-control@(Model.Area.IsNullOrEmpty() ? "" : " edited")" id="Area" placeholder="选择你的地区" data-toggle="dropdown" readonly="">
+                <input type="hidden" class="form-control" name="Area" value="@Model.Area">
                 <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
@@ -23,52 +31,107 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="province">--</div>
                             <div role="tabpanel" class="tab-pane" id="city">--</div>
-                            <div role="tabpanel" class="tab-pane" id="district">--</div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
+
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Age" class="form-control@(!Model.Age.HasValue ? "" : " edited")" value="@Model.Age" maxlength="3" />
+            <label>@L("Age")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Interest" class="form-control@(!Model.Interest.HasValue ? "" : " edited")" value="@Model.Interest" maxlength="12" />
+            <label>@L("Interest")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="IdCard" class="form-control@(Model.IdCard.IsNullOrEmpty() ? "" : " edited")" value="@Model.IdCard" maxlength="20" />
+            <label>@L("IdCard")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="DebitAmount" class="form-control@(!Model.DebitAmount.HasValue ? "" : " edited")" value="@Model.DebitAmount" maxlength="12" />
+            <label>@L("DebitAmount")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="SesameScore" class="form-control@(!Model.SesameScore.HasValue ? "" : " edited")" value="@Model.SesameScore" maxlength="6" />
+            <label>@L("SesameScore")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <label>@L("CreditRating")</label>
+
+            @Html.DropDownListFor(m => m.CreditRating, new List<SelectListItem>() { new SelectListItem() {  Text="",Value= "0" }, new SelectListItem() { Text = "好", Value = "4" }
+            ,new SelectListItem() {  Text="良好",Value= "3" },new SelectListItem() {  Text="中等",Value= "2" },new SelectListItem() {  Text="差",Value= "1" }
+            }, new {
+                @class = "form-control selectpicker",
+                data_live_search = "true",
+            })
+
             
-            <label>@L("Area")</label>
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
+            <input type="text" name="Tel" class="form-control@(Model.Tel.IsNullOrEmpty() ? "" : " edited")" value="@Model.Tel" maxlength="40" />
+            <label>@L("Tel")</label>
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
+            <input type="text" name="WeChat" class="form-control@(Model.WeChat.IsNullOrEmpty() ? "" : " edited")" value="@Model.WeChat" maxlength="60" />
+            <label>@L("WeChat")</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="QQ" class="form-control@(Model.QQ.IsNullOrEmpty() ? "" : " edited")" value="@Model.QQ" maxlength="30" />
+            <label>@L("QQ")</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="AppEquipment" class="form-control@(Model.AppEquipment.IsNullOrEmpty() ? "" : " edited")" value="@Model.AppEquipment" maxlength="30" />
+            <label>@L("AppEquipment")</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Source" class="form-control@(Model.Source.IsNullOrEmpty() ? "" : " edited")" value="@Model.Source" maxlength="30" />
+            <label>@L("Source")</label>
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
+            <input class="form-control@(!Model.RecordCharge.HasValue ? "" : " edited")" type="text" name="Name" value="@Model.RecordCharge" required maxlength="10" />
+            <label>@L("RecordCharge")</label>
         </div>
 
-        <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input class="md-check" id="IsComplete" type="checkbox" name="IsComplete" value="true" @Html.Raw(!Model.IsEditMode || Model.IsComplete == 1 ? "checked=\"checked\"" : "")>
+                <label for="IsComplete">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("InfoComplete")
+                </label>
+            </div>
         </div>
 
-        <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
-        </div>
 
-        <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
-        </div>
-
-        <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Age" class="form-control" required maxlength="3" />
-            <label>@L("Age")</label>
-        </div>
 
 
     </form>
 </div>
-
+<script>
+    $.getJSON('/libs/bootstrap-chinese-region/sql_areas.json', function (data) {
+        for (var i = 0; i < data.length; i++) {
+            var area = { id: data[i].id, name: data[i].cname, level: data[i].level, parentId: data[i].upid };
+            data[i] = area;
+        }
+        $('.bs-chinese-region').chineseRegion('source', data).on('completed.bs.chinese-region', function (e, areas) {
+            $(this).find('[name=Area]').val(areas[0].name + "|" + areas[areas.length - 1].name);
+        });
+        $("#Area").val("@Model.Area")
+    });
+</script>
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

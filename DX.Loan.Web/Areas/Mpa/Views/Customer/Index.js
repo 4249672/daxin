@@ -1,7 +1,7 @@
 ﻿(function () {
     $(function () {
 
-        var _$rolesTable = $('#CustomerTable');
+        var _$table = $('#CustomerTable');
         var _service = abp.services.app.customer;
 
         var _permissions = {
@@ -13,10 +13,10 @@
         var _createOrEditModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Mpa/Customer/CreateOrEditModal',
             scriptUrl: abp.appPath + 'Areas/Mpa/Views/Customer/_CreateOrEditModal.js',
-            modalClass: 'CreateOrEditRoleModal'
+            modalClass: 'CreateCustomerModal'
         });
 
-        _$rolesTable.jtable({
+        _$table.jtable({
 
             title: app.localize('Customer'),
 
@@ -31,32 +31,29 @@
                     key: true,
                     list: false
                 },
-                //actions: {
-                //    type: 'record-actions',
-                //    cssClass: 'btn btn-xs btn-primary blue',
-                //    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
-                //    items: [{
-                //        text: app.localize('Edit'),
-                //        visible: function () {
-                //            return _permissions.edit;
-                //        },
-                //        action: function (data) {
-                //            _createOrEditModal.open({ id: data.record.id });
-                //        }
-                //    }, {
-                //        text: app.localize('Delete'),
-                //        visible: function (data) {
-                //            return !data.record.isStatic && _permissions.delete;
-                //        },
-                //        action: function (data) {
-                //            //deleteRole(data.record);
-                //        }
-                //    }]
-                //},
-                actions: {
-                    title: app.localize('Actions'),//操作列
-                    width: '15%',
-                    sorting: false
+                actions: {title: app.localize('Actions'),//操作列
+                    width: '10%',
+                    sorting: false,
+                    type: 'record-actions',
+                    cssClass: 'btn btn-xs btn-primary blue',
+                    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
+                    items: [{
+                        text: app.localize('Edit'),
+                        visible: function () {
+                            return true;
+                        },
+                        action: function (data) {
+                            _createOrEditModal.open({ id: data.record.id });
+                        }
+                    }, {
+                        text: app.localize('Delete'),
+                        visible: function (data) {
+                            return  true;
+                        },
+                        action: function (data) {
+                            deleteCustomer(data.record);
+                        }
+                    }]
                 },
                 name: {
                     title: app.localize('Name'),
@@ -68,6 +65,10 @@
                 },
                 idCard: {
                     title: app.localize('IdCard'),
+                    width: '10%',
+                },
+                area: {
+                    title: app.localize('Area'),
                     width: '10%',
                 },
                 tel: {
@@ -82,27 +83,6 @@
                     title: app.localize('QQ'),
                     width: '10%',
                 },
-                //displayName: {
-                //    title: app.localize('RoleName'),
-                //    width: '35%',
-                //    display: function (data) {
-                //        var $span = $('<span></span>');
-
-                //        $span.append(data.record.displayName + " &nbsp; ");
-
-                //        //if (data.record.isStatic) {
-                //        //    $span.append('<span class="label label-info" data-toggle="tooltip" title="' + app.localize('StaticRole_Tooltip') + '" data-placement="top">' + app.localize('Static') + '</span>&nbsp;');
-                //        //}
-
-                //        //if (data.record.isDefault) {
-                //        //    $span.append('<span class="label label-default" data-toggle="tooltip" title="' + app.localize('DefaultRole_Description') + '" data-placement="top">' + app.localize('Default') + '</span>&nbsp;');
-                //        //}
-
-                //        //$span.find('[data-toggle=tooltip]').tooltip();
-
-                //        return $span;
-                //    }
-                //},
                 creationTime: {
                     title: app.localize('CreationTime'),
                     width: '25%',
@@ -114,49 +94,42 @@
 
         });
 
-        //function deleteRole(role) {
-        //    abp.message.confirm(
-        //        app.localize('RoleDeleteWarningMessage', role.displayName),
-        //        function (isConfirmed) {
-        //            if (isConfirmed) {
-        //                _roleService.deleteRole({
-        //                    id: role.id
-        //                }).done(function () {
-        //                    getRoles();
-        //                    abp.notify.success(app.localize('SuccessfullyDeleted'));
-        //                });
-        //            }
-        //        }
-        //    );
-        //};
+        function deleteCustomer(cust) {
+            abp.message.confirm(
+                app.localize('CustomerDeleteWarningMessage', cust.name),
+                function (isConfirmed) {
+                    if (isConfirmed) {
+                        _service.deleteCustomer({
+                            id: cust.id
+                        }).done(function () {
+                            getCustomers();
+                            abp.notify.success(app.localize('SuccessfullyDeleted'));
+                        });
+                    }
+                }
+            );
+        };
 
         $('#CreateNewButton').click(function () {
             _createOrEditModal.open();
+            
         });
 
         $('#RefreshButton').click(function (e) {
             e.preventDefault();
-            getRoles();
+            getCustomers();
         });
 
-        function getRoles() {
-            _$rolesTable.jtable('load', { permission: $('#PermissionSelectionCombo').val() });
+        function getCustomers() {
+            _$table.jtable("load");
         }
 
-        //abp.event.on('app.createOrEditRoleModalSaved', function () {
-        //    getRoles();
-        //});
+        getCustomers();
 
-        getRoles();
+        abp.event.on('app.createCustomerModalSaved', function () {
+            getCustomers();
+        })
 
-        $.getJSON('/libs/bootstrap-chinese-region/sql_areas.json', function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var area = { id: data[i].id, name: data[i].cname, level: data[i].level, parentId: data[i].upid };
-                data[i] = area;
-            }
-            $('.bs-chinese-region').chineseRegion('source', data).on('completed.bs.chinese-region', function (e, areas) {
-                $(this).find('[name=address]').val(areas[areas.length - 1].id);
-            });
-        });
+        
     });
 })();

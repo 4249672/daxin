@@ -9,6 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DX.Loan.Customer.Dto;
+using Abp.Authorization;
+using DX.Loan.Authorization;
+using Abp.Configuration;
+using DX.Loan.Configuration;
 
 namespace DX.Loan.Customer
 {
@@ -19,7 +23,7 @@ namespace DX.Loan.Customer
         public CustomerAppService(IRepository<CustomerInfo, long> customerRespository) {
             _customerRespository = customerRespository;
         }
-
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer)]
         public ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input) {
 
             var list = _customerRespository.GetAll()
@@ -34,12 +38,70 @@ namespace DX.Loan.Customer
 
             return new ListResultDto<CustomerDto>(list.MapTo<List<CustomerDto>>());
         }
-
-        public void CreateCustomer(CustomerCreateInput input)
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Create)]
+        protected void CreateCustomer(CreateOrUpdateCustomerInput input)
         {
-            var entity = input.MapTo<CustomerInfo>();
+            var entity = input.Customer.MapTo<CustomerInfo>();
             _customerRespository.Insert(entity);
         }
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Edit)]
+        protected void UpdateCustomer(CreateOrUpdateCustomerInput input) {
+            var entity = _customerRespository.Get(input.Customer.Id.Value);
+            entity.Name = input.Customer.Name;
+            entity.Area = input.Customer.Area;
+            entity.Age = input.Customer.Age;
+            entity.IdCard = input.Customer.IdCard;
+            entity.Interest = input.Customer.Interest;
+            entity.DebitAmount = input.Customer.DebitAmount;
+            entity.SesameScore = input.Customer.SesameScore;
+            entity.CreditRating = input.Customer.CreditRating;
+            entity.ApplicationDate = input.Customer.ApplicationDate;
+            entity.Tel = input.Customer.Tel;
+            entity.WeChat = input.Customer.WeChat;
+            entity.QQ = input.Customer.QQ;
+            entity.AppEquipment = input.Customer.AppEquipment;
+            entity.Source = input.Customer.Source;
+            entity.IsComplete = input.Customer.IsComplete;
+            entity.RecordCharge = input.Customer.RecordCharge;
+
+        }
+
+        public void CreateOrUpdateCustomer(CreateOrUpdateCustomerInput input)
+        {
+            if (input.Customer.Id.HasValue)
+            {
+                UpdateCustomer(input);
+            }
+            else
+            {
+                 CreateCustomer(input);
+            }
+        }
         
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Delete)]
+        public void DeleteCustomer(EntityDto input)
+        {
+            var entity = _customerRespository.Get(input.Id);
+            _customerRespository.Delete(entity);
+        }
+
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Create, AppPermissions.Pages_Administration_Customer_Edit)]
+        public CustomerEditDto GetCustomerForEdit(NullableIdDto input)
+        {
+            CustomerEditDto editDto;
+
+            if (input.Id.HasValue) //Editing existing?
+            {
+                var customer = _customerRespository.Get(input.Id.Value);
+                editDto = customer.MapTo<CustomerEditDto>();
+            }
+            else
+            {
+                editDto = new CustomerEditDto() { RecordCharge = Convert.ToDecimal(SettingManager.GetSettingValue(AppSettings.General.RecordChargeFee)) };
+            }
+
+            return editDto;
+        }
+
     }
 }
