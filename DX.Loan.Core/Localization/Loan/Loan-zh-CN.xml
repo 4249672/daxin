@@ -300,7 +300,8 @@
     <text name="RecordCharge" value="此条价格"></text>
     <text name="InfoComplete" value="信息是否完整"></text>
     <text name="CustomerDeleteWarningMessage" value="贷款人信息 {0} 将被删除" />
-    
-    
+
+    <text name="CreateNew" value="创建"></text>
+
   </texts>
 </localizationDictionary>

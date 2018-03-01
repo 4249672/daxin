@@ -29491,3 +29491,6 @@ DEBUG 2018-02-25 00:48:00,220 [133  ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 DEBUG 2018-02-25 00:48:00,240 [105  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: dd8c0b07-4e00-42c8-a5bc-2c079837268a
 DEBUG 2018-02-25 00:48:27,604 [118  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2ee76bd1-de27-4f3f-9c4b-ebce4a2db870
 WARN  2018-02-25 00:50:18,638 [133  ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNew' in localization source 'Loan'!
+WARN  2018-02-25 00:51:52,827 [110  ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNew' in localization source 'Loan'!
+DEBUG 2018-02-25 00:52:38,796 [87   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: dd8c0b07-4e00-42c8-a5bc-2c079837268a
+DEBUG 2018-02-25 00:52:38,976 [133  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 6c3b84b1-3db1-4928-80e8-b34be7e2aab5
