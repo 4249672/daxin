@@ -28,7 +28,7 @@ namespace DX.Loan
 
         //状态 (冻结,正常)
         //public string Status { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } 
 
     }
 }
