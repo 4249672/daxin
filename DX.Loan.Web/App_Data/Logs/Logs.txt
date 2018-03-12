@@ -29491,3 +29491,144 @@ DEBUG 2018-02-25 00:48:00,220 [133  ] Abp.Web.SignalR.Hubs.AbpCommonHub        -
 DEBUG 2018-02-25 00:48:00,240 [105  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: dd8c0b07-4e00-42c8-a5bc-2c079837268a
 DEBUG 2018-02-25 00:48:27,604 [118  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2ee76bd1-de27-4f3f-9c4b-ebce4a2db870
 WARN  2018-02-25 00:50:18,638 [133  ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNew' in localization source 'Loan'!
+WARN  2018-02-25 00:51:52,827 [110  ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNew' in localization source 'Loan'!
+DEBUG 2018-02-25 00:52:38,796 [87   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: dd8c0b07-4e00-42c8-a5bc-2c079837268a
+DEBUG 2018-02-25 00:52:38,976 [133  ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 6c3b84b1-3db1-4928-80e8-b34be7e2aab5
+DEBUG 2018-03-10 14:22:55,396 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Found 21 ABP modules in total.
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DX.Loan.Web.LoanWebModule, DX.Loan.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,455 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DX.Loan.LoanDataModule, DX.Loan.EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DX.Loan.LoanCoreModule, DX.Loan.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DX.Loan.LoanApplicationModule, DX.Loan.Application, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DX.Loan.WebApi.LoanWebApiModule, DX.Loan.WebApi, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=3.2.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:22:55,486 [1    ] Abp.Modules.AbpModuleManager             - 21 modules loaded.
+DEBUG 2018-03-10 14:22:55,881 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-03-10 14:22:55,881 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-03-10 14:22:55,881 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-03-10 14:22:55,881 [1    ] o.Configuration.LanguageManagementConfig - Converted Loan (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-03-10 14:22:56,431 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DX.Loan.EntityFramework.LoanDbContext, DX.Loan.EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-03-10 14:23:03,678 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-03-10 14:23:03,769 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-03-10 14:23:03,788 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-03-10 14:23:03,788 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-03-10 14:23:03,847 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Loan
+DEBUG 2018-03-10 14:23:03,946 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-03-10 14:23:04,626 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 39 classes define auto mapping attributes
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Friendships.Cache.FriendCacheItem
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Organizations.Dto.OrganizationUnitDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.MultiTenancy.Dto.TenantListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.MultiTenancy.Dto.TenantEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Friendships.Dto.FriendDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Editions.Dto.EditionEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Editions.Dto.FlatFeatureDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Editions.Dto.EditionListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Chat.Dto.ChatMessageDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Chat.Dto.ChatUserDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Users.Dto.UserListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Roles.Dto.RoleListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Auditing.Dto.AuditLogListDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Customer.CustomerDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Customer.Dto.CustomerCreateInput
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Customer.Dto.CustomerEditDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Authorization.Users.Dto.UserListDto+UserListRoleDto
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Users.UserPermissionsEditViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Users.CreateOrEditUserModalViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Profile.MySettingsViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Editions.CreateOrEditEditionModalViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Tenants.TenantFeaturesEditViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Roles.CreateOrEditRoleModalViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.OrganizationUnits.EditOrganizationUnitModalViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Languages.CreateOrEditLanguageModalViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerViewModel
+DEBUG 2018-03-10 14:23:04,788 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DX.Loan.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-03-10 14:23:05,449 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2018-03-10 14:23:05,465 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2018-03-10 14:23:05,481 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2018-03-10 14:23:05,496 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DX.Loan.Customer.ICustomerAppService' with service name 'app/customer'.
+WARN  2018-03-10 14:24:36,370 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:24:38,558 [17   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"f48c2674-4536-4038-a352-39b92b18ad1f","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:24:38.5495475Z","Properties":{}}
+DEBUG 2018-03-10 14:24:38,718 [5    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: f48c2674-4536-4038-a352-39b92b18ad1f
+WARN  2018-03-10 14:24:51,674 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:24:52,950 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: f48c2674-4536-4038-a352-39b92b18ad1f
+WARN  2018-03-10 14:24:54,056 [19   ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:24:54,829 [13   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"c2c74ada-9e6a-45f3-b95d-b2aca6e2ca76","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:24:54.8292203Z","Properties":{}}
+DEBUG 2018-03-10 14:24:54,835 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: c2c74ada-9e6a-45f3-b95d-b2aca6e2ca76
+DEBUG 2018-03-10 14:26:24,270 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: c2c74ada-9e6a-45f3-b95d-b2aca6e2ca76
+DEBUG 2018-03-10 14:26:25,706 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"d149d265-a630-4248-bc58-93b74854cdae","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:25.7069496Z","Properties":{}}
+DEBUG 2018-03-10 14:26:25,722 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: d149d265-a630-4248-bc58-93b74854cdae
+WARN  2018-03-10 14:26:31,923 [19   ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:26:31,985 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: d149d265-a630-4248-bc58-93b74854cdae
+WARN  2018-03-10 14:26:32,417 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:26:33,051 [13   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"5037ad38-896f-42a7-9e28-faaa979b7148","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:33.0514606Z","Properties":{}}
+DEBUG 2018-03-10 14:26:33,065 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 5037ad38-896f-42a7-9e28-faaa979b7148
+WARN  2018-03-10 14:26:37,795 [7    ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:26:37,860 [8    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 5037ad38-896f-42a7-9e28-faaa979b7148
+WARN  2018-03-10 14:26:38,364 [8    ] naries.DictionaryBasedLocalizationSource - Can not find 'Customer' in localization source 'Loan'!
+DEBUG 2018-03-10 14:26:38,949 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"1a081ac1-7016-4347-b233-42dec8f86390","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:38.9493027Z","Properties":{}}
+DEBUG 2018-03-10 14:26:38,960 [18   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 1a081ac1-7016-4347-b233-42dec8f86390
+DEBUG 2018-03-10 14:26:42,743 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 1a081ac1-7016-4347-b233-42dec8f86390
+DEBUG 2018-03-10 14:26:43,784 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"2de01c8f-32d2-4f12-afac-07ad4fb9d4e3","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:43.7849773Z","Properties":{}}
+DEBUG 2018-03-10 14:26:43,792 [17   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 2de01c8f-32d2-4f12-afac-07ad4fb9d4e3
+DEBUG 2018-03-10 14:26:47,259 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2de01c8f-32d2-4f12-afac-07ad4fb9d4e3
+DEBUG 2018-03-10 14:26:48,719 [8    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"4446598d-2f4a-489d-88b0-fd4a1a779591","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:48.7198063Z","Properties":{}}
+DEBUG 2018-03-10 14:26:48,785 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 4446598d-2f4a-489d-88b0-fd4a1a779591
+DEBUG 2018-03-10 14:26:53,994 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 4446598d-2f4a-489d-88b0-fd4a1a779591
+DEBUG 2018-03-10 14:26:54,978 [15   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"163f21db-05bc-4577-8a93-e96ce84c2555","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:26:54.9781498Z","Properties":{}}
+DEBUG 2018-03-10 14:26:55,002 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 163f21db-05bc-4577-8a93-e96ce84c2555
+DEBUG 2018-03-10 14:27:22,900 [6    ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 163f21db-05bc-4577-8a93-e96ce84c2555
+DEBUG 2018-03-10 14:27:24,186 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"ae7bed79-b7e4-4030-a3b3-5fc846d10618","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:27:24.1856214Z","Properties":{}}
+DEBUG 2018-03-10 14:27:24,206 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: ae7bed79-b7e4-4030-a3b3-5fc846d10618
+DEBUG 2018-03-10 14:58:13,242 [41   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: ae7bed79-b7e4-4030-a3b3-5fc846d10618
+DEBUG 2018-03-10 14:58:14,717 [45   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"2f98f3a3-3ecb-4af8-bb24-833ea4b2c081","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-03-10T06:58:14.7170817Z","Properties":{}}
+DEBUG 2018-03-10 14:58:14,749 [45   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: 2f98f3a3-3ecb-4af8-bb24-833ea4b2c081
+DEBUG 2018-03-10 15:26:56,577 [65   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is disconnected: 2f98f3a3-3ecb-4af8-bb24-833ea4b2c081
