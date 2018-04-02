@@ -6,7 +6,7 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Timing;
 
-namespace DX.Loan.Trade
+namespace DX.Loan
 {
     [Table("Finance_Trade_Detail")]
     public class FinanceTradeDetail : CreationAuditedEntity<long>

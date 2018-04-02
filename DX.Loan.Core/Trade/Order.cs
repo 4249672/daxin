@@ -8,12 +8,19 @@ using Abp.Timing;
 
 namespace DX.Loan
 {
-    //关联 Order
-    [Table("CustomerInfo")]
-    public class CustomerInfo: CreationAuditedEntity<long>, IPassivable //ISoftDelete
+    [Table("Finance_Account")]
+    public class Order: CreationAuditedEntity<long>
     {
+        public string OrderNo { get; set; }
+
+        // 1 已付款 , 2 未付款 , 3 抢购失败 , 4 取消交易
+        public string Status { get; set; }
+
+        //实际付款金额
+        public decimal? OrderAmount { get; set; }
+
+        //****************************下面属性来自 CustomerInfo , 因为CustomerInfo 有可能被删除
         //姓　名
-        [Required]
         [MaxLength(20)]
         public string Name { get; set; }
 
@@ -28,7 +35,7 @@ namespace DX.Loan
         //身份证
         [MaxLength(20)]
         public string IdCard { get; set; }
-        
+
         //预支付的利息
         public decimal? Interest { get; set; }
         //预计贷款金额
@@ -36,7 +43,6 @@ namespace DX.Loan
         //芝麻分
         public int? SesameScore { get; set; }
         //信用评级
-        //[MaxLength(30)]
         public int? CreditRating { get; set; }
 
         //申请日期
@@ -58,15 +64,8 @@ namespace DX.Loan
         //来源
         [MaxLength(30)]
         public string Source { get; set; }
-        
-        //信息是否完整
-        public int? IsComplete { get; set; }
 
-        //交易次数，被售出的次数
-        public int? TransTimes { get; set; }
-        //此条价格
-        public decimal? RecordCharge { get; set; }
-        
-        public bool IsActive { get; set; }
+
+
     }
 }

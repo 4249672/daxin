@@ -275,6 +275,7 @@
     <Compile Include="Timing\TimeZoneService.cs" />
     <Compile Include="Trade\FinanceAccount.cs" />
     <Compile Include="Trade\FinanceTradeDetail.cs" />
+    <Compile Include="Trade\Order.cs" />
     <Compile Include="Validation\ValidationHelper.cs" />
     <Compile Include="Web\IWebUrlService.cs" />
     <Compile Include="Web\WebUrlService.cs" />
