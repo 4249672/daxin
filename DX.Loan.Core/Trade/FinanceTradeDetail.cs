@@ -9,7 +9,7 @@ using Abp.Timing;
 namespace DX.Loan.Trade
 {
     [Table("Finance_Trade_Detail")]
-    public class FinanceTradeDetail : AuditedEntity<long>
+    public class FinanceTradeDetail : CreationAuditedEntity<long>
     {
         //账户资金表编号 外键
         public long FinanceAccountId { get; set; }
@@ -20,7 +20,7 @@ namespace DX.Loan.Trade
         //交易流水号
         public string SerialNo { get; set; }
 
-        //交易类型 1:充值,2:返现;3:提现
+        //交易类型 1:充值,2:返现;3:提现 ， 4:消费
         public string TradeType { get; set; }
 
         //支付渠道 internal:内部支付、trade.alipay.native:支付宝、trade.weixin.jspay:微信公众号支付、trade.weixin.native:微信扫码支付、trade.bankpay.native:网银

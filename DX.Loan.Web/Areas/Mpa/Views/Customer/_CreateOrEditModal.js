@@ -24,7 +24,7 @@
             }
 
             var customer = _$customerForm.serializeFormToObject();
-            debugger
+            
             _modalManager.setBusy(true);
             customerServ.createOrUpdateCustomer({ customer: customer }).done(function () {
                 abp.notify.info(app.localize("SavedSuccessfully"));
