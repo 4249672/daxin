@@ -8,9 +8,10 @@ using Abp.Timing;
 
 namespace DX.Loan
 {
-    [Table("Finance_Account")]
+    [Table("Order")]
     public class Order: CreationAuditedEntity<long>
     {
+        //订单编号
         public string OrderNo { get; set; }
 
         // 1 已付款 , 2 未付款 , 3 抢购失败 , 4 取消交易
@@ -18,6 +19,9 @@ namespace DX.Loan
 
         //实际付款金额
         public decimal? OrderAmount { get; set; }
+
+        //用户编号 外键
+        public long UserId { get; set; }
 
         //****************************下面属性来自 CustomerInfo , 因为CustomerInfo 有可能被删除
         //姓　名

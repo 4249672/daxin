@@ -53,5 +53,15 @@ namespace DX.Loan.EntityFramework
         {
 
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>().Ignore(a => a.Name);
+            modelBuilder.Entity<User>().Ignore(a => a.Surname);
+            modelBuilder.Entity<User>().Property(a => a.EmailAddress).IsOptional();
+        }
+
     }
 }

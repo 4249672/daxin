@@ -33,6 +33,7 @@ namespace DX.Loan
         public decimal? Interest { get; set; }
         //预计贷款金额
         public decimal? DebitAmount { get; set; }
+
         //芝麻分
         public int? SesameScore { get; set; }
         //信用评级

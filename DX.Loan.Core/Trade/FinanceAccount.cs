@@ -26,6 +26,9 @@ namespace DX.Loan
         //冻结余额
         public decimal? BlanceFrozen { get; set; }
 
+        //用户级别
+        public string Level { get; set; }
+
         //状态 (冻结,正常)
         //public string Status { get; set; }
         public bool IsActive { get; set; } 

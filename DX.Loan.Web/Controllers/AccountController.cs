@@ -401,8 +401,8 @@ namespace DX.Loan.Web.Controllers
                 var user = new User
                 {
                     TenantId = tenant.Id,
-                    Name = model.Name,
-                    Surname = model.Surname,
+                    //Name = model.Name,
+                    //Surname = model.Surname,
                     EmailAddress = model.EmailAddress,
                     IsActive = isNewRegisteredUserActiveByDefault
                 };
@@ -874,8 +874,8 @@ namespace DX.Loan.Web.Controllers
             {
                 TenancyName = tenancyName,
                 EmailAddress = loginInfo.Email,
-                Name = name,
-                Surname = surname,
+                //Name = name,
+                //Surname = surname,
                 IsExternalLogin = true
             };
 
