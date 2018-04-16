@@ -374,6 +374,10 @@
     <Compile Include="Timing\Dto\GetTimezonesInput.cs" />
     <Compile Include="Timing\ITimingAppService.cs" />
     <Compile Include="Timing\TimingAppService.cs" />
+    <Compile Include="Transaction\Order\IOrderAppService.cs" />
+    <Compile Include="Transaction\Order\OrderAppService.cs" />
+    <Compile Include="Transaction\Trade\ITradeAppService.cs" />
+    <Compile Include="Transaction\Trade\TradeAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

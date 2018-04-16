@@ -132,8 +132,8 @@ namespace DX.Loan.Authorization.Users
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                //Console.WriteLine(e);
+                throw e;
             }
 
         }

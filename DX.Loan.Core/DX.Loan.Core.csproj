@@ -194,6 +194,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Notice\Notice.cs" />
     <Compile Include="CustomerMaint\CustomerInfo.cs" />
     <Compile Include="LoanConsts.cs" />
     <Compile Include="LoanCoreModule.cs" />
