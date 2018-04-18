@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Abp.Application.Services.Dto;
+using DX.Loan.Transaction.Trade.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +13,29 @@ namespace DX.Loan.Transaction
         /// <summary>
         /// 充值
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="amount"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        bool Recharge(long userId, decimal amount);
+        bool RechargeTrade(RechargeInput input);
 
         /// <summary>
-        /// 查询充值记录
+        /// 扣费
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        bool DeductionTrade(RechargeInput input);
+        
+        
+        /// <summary>
+        /// 查询充值记录 (针对给用户查询)
         /// </summary>
         /// <returns></returns>
-        List<FinanceTradeDetail> GetUserRechargeList();
+        Task<PagedResultDto<TradeDetailsDto>> GetUserRechargeList(TradeForUserInput input);
 
         /// <summary>
-        /// 查询用户的交易记录
+        /// 查询用户的交易记录 （包括充值，扣费记录）
         /// </summary>
         /// <returns></returns>
-        List<FinanceTradeDetail> GetUserTradeRecord();
+        Task<PagedResultDto<TradeDetailsDto>> GetUserTradeRecord(TradeInput input);
         
     }
 }

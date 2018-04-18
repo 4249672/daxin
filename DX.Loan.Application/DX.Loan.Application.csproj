@@ -376,6 +376,10 @@
     <Compile Include="Timing\TimingAppService.cs" />
     <Compile Include="Transaction\Order\IOrderAppService.cs" />
     <Compile Include="Transaction\Order\OrderAppService.cs" />
+    <Compile Include="Transaction\Trade\Dto\RechargeInput.cs" />
+    <Compile Include="Transaction\Trade\Dto\TradeDetailsDto.cs" />
+    <Compile Include="Transaction\Trade\Dto\TradeForUserInput.cs" />
+    <Compile Include="Transaction\Trade\Dto\TradeInput.cs" />
     <Compile Include="Transaction\Trade\ITradeAppService.cs" />
     <Compile Include="Transaction\Trade\TradeAppService.cs" />
   </ItemGroup>
@@ -393,7 +397,9 @@
       <Name>DX.Loan.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Transaction\Order\Dto\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

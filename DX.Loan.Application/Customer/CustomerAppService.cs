@@ -66,6 +66,7 @@ namespace DX.Loan.Customer
 
         }
 
+        [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Create, AppPermissions.Pages_Administration_Customer_Edit)]
         public void CreateOrUpdateCustomer(CreateOrUpdateCustomerInput input)
         {
             if (input.Customer.Id.HasValue)

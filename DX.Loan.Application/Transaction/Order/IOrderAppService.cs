@@ -9,9 +9,9 @@ namespace DX.Loan.Transaction.Order
     public interface IOrderAppService
     {
 
+        List<DX.Loan.Order> GetOrders();
 
-
-
+        bool CreateOrder();
 
     }
 }
