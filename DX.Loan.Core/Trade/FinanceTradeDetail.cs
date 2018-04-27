@@ -12,27 +12,37 @@ namespace DX.Loan
     public class FinanceTradeDetail : CreationAuditedEntity<long>
     {
         //账户资金表编号 外键
+        [Required]
         public long FinanceAccountId { get; set; }
 
         //用户编号 外键
+        [Required]
         public long UserId { get; set; }
 
         //交易流水号
+        [MaxLength(30)]
+        [Required]
         public string SerialNo { get; set; }
 
         //交易类型 1:充值,2:返现;3:提现 ; 4:消费
+        [MaxLength(10)]
+        [Required]
         public string TradeType { get; set; }
 
         //交易金额
+        [Required]
         public decimal Amount { get; set; }
-        
+
         //交易申请备注
+        [MaxLength(100)]
         public string RemarkSubmit { get; set; }
 
         //交易审核备注
+        [MaxLength(100)]
         public string RemarkAudit { get; set; }
 
         //如果是客户购买产生的 , 则记录购买的订单编号
+        [MaxLength(30)]
         public string RefNo { get; set; }
 
 
@@ -46,6 +56,7 @@ namespace DX.Loan
         //public string Currency { get; set; }
 
         //交易参数 JSON格式
+        [MaxLength(100)]
         public string TradeParams { get; set; }
         
     }

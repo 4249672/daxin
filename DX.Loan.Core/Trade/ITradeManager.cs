@@ -9,7 +9,10 @@ namespace DX.Loan.Trade
     public interface ITradeManager
     {
         //创建交易记录
-        bool CreateTrade(FinanceTradeDetail input);
+        bool CreateTrade(FinanceTradeDetail entity);
 
+        //产生交易单号
+        string GenerateTradeNo(TradeType tradeType);
+        
     }
 }

@@ -18,7 +18,7 @@ namespace DX.Loan.Transaction
         bool RechargeTrade(RechargeInput input);
 
         /// <summary>
-        /// 扣费
+        /// 消费
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
@@ -26,16 +26,16 @@ namespace DX.Loan.Transaction
         
         
         /// <summary>
-        /// 查询充值记录 (针对给用户查询)
+        /// 查询充值/扣费/消费 记录 (针对给用户查询)
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultDto<TradeDetailsDto>> GetUserRechargeList(TradeForUserInput input);
+        Task<PagedResultDto<TradeDetailsDto>> GetUserChargeForUserList(TradeForUserInput input);
 
         /// <summary>
-        /// 查询用户的交易记录 （包括充值，扣费记录）
+        /// 查询用户的交易记录 （包括充值，消费，返现，扣费等记录，针对给管理员查询）
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultDto<TradeDetailsDto>> GetUserTradeRecord(TradeInput input);
+        Task<PagedResultDto<TradeDetailsDto>> GetUserTradeRecordList(TradeInput input);
         
     }
 }

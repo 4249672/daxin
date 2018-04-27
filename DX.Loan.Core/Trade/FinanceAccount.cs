@@ -12,6 +12,7 @@ namespace DX.Loan
     public class FinanceAccount: AuditedEntity<long>, IPassivable
     {
         //用户编号 外键
+        [Required]
         public long UserId { get; set; }
 
         //预付款
@@ -27,6 +28,7 @@ namespace DX.Loan
         public decimal? BlanceFrozen { get; set; }
 
         //用户级别
+        [MaxLength(20)]
         public string Level { get; set; }
 
         //状态 (冻结,正常)

@@ -47,6 +47,7 @@ using Newtonsoft.Json;
 using DX.Loan.Security;
 using DX.Loan.Web.Auth;
 using DX.Loan.Web.Models.Layout;
+using Abp.Domain.Repositories;
 
 namespace DX.Loan.Web.Controllers
 {
@@ -70,7 +71,7 @@ namespace DX.Loan.Web.Controllers
         private readonly IAuthenticationManager _authenticationManager;
         private readonly ILanguageManager _languageManager;
         private readonly IUserPolicy _userPolicy;
-
+        private readonly IRepository<FinanceAccount, long> _accountRepository;
 
         public AccountController(
             LogInManager logInManager,
@@ -90,7 +91,8 @@ namespace DX.Loan.Web.Controllers
             SignInManager signInManager,
             IAuthenticationManager authenticationManager,
             ILanguageManager languageManager,
-            IUserPolicy userPolicy)
+            IUserPolicy userPolicy,
+            IRepository<FinanceAccount, long> accountRepository)
         {
             _userManager = userManager;
             _multiTenancyConfig = multiTenancyConfig;
@@ -110,6 +112,7 @@ namespace DX.Loan.Web.Controllers
             _languageManager = languageManager;
             _userPolicy = userPolicy;
             _logInManager = logInManager;
+            _accountRepository = accountRepository;
         }
 
         #region Login / Logout
@@ -198,6 +201,10 @@ namespace DX.Loan.Web.Controllers
             if (identity == null)
             {
                 identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                var account = _accountRepository.FirstOrDefault(m => m.UserId == user.Id);
+                if (account != null)
+                    identity.AddClaim(new Claim(ClaimTypes.PrimarySid, account.Id.ToString())); //FinanceAccountId
             }
 
             _authenticationManager.SignOutAllAndSignIn(identity, rememberMe);

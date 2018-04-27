@@ -194,6 +194,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extend\AbpSessionExtension.cs" />
     <Compile Include="Notice\Notice.cs" />
     <Compile Include="CustomerMaint\CustomerInfo.cs" />
     <Compile Include="LoanConsts.cs" />
@@ -278,6 +279,8 @@
     <Compile Include="Trade\FinanceTradeDetail.cs" />
     <Compile Include="Trade\ITradeManager.cs" />
     <Compile Include="Trade\Order.cs" />
+    <Compile Include="Trade\TradeManager.cs" />
+    <Compile Include="Trade\UniqueNumber.cs" />
     <Compile Include="Validation\ValidationHelper.cs" />
     <Compile Include="Web\IWebUrlService.cs" />
     <Compile Include="Web\WebUrlService.cs" />
