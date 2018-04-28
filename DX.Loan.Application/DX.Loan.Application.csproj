@@ -378,6 +378,7 @@
     <Compile Include="Transaction\Order\OrderAppService.cs" />
     <Compile Include="Transaction\Trade\Dto\RechargeInput.cs" />
     <Compile Include="Transaction\Trade\Dto\TradeDetailsDto.cs" />
+    <Compile Include="Transaction\Trade\Dto\TradeDetailsForUserDto.cs" />
     <Compile Include="Transaction\Trade\Dto\TradeForUserInput.cs" />
     <Compile Include="Transaction\Trade\Dto\TradeInput.cs" />
     <Compile Include="Transaction\Trade\ITradeAppService.cs" />

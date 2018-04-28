@@ -29,13 +29,13 @@ namespace DX.Loan.Transaction
         /// 查询充值/扣费/消费 记录 (针对给用户查询)
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultDto<TradeDetailsDto>> GetUserChargeForUserList(TradeForUserInput input);
+        PagedResultDto<TradeDetailsForUserDto> GetUserChargeForUserList(TradeForUserInput input);
 
         /// <summary>
         /// 查询用户的交易记录 （包括充值，消费，返现，扣费等记录，针对给管理员查询）
         /// </summary>
         /// <returns></returns>
-        Task<PagedResultDto<TradeDetailsDto>> GetUserTradeRecordList(TradeInput input);
+        PagedResultDto<TradeDetailsDto> GetUserTradeRecordList(TradeInput input);
         
     }
 }
