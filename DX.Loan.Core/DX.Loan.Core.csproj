@@ -194,6 +194,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerMaint\CustomerManager.cs" />
+    <Compile Include="CustomerMaint\CustomerSearchCondition.cs" />
+    <Compile Include="CustomerMaint\ICustomerManager.cs" />
     <Compile Include="Extend\AbpSessionExtension.cs" />
     <Compile Include="Notice\Notice.cs" />
     <Compile Include="CustomerMaint\CustomerInfo.cs" />

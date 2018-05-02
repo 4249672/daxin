@@ -36,5 +36,24 @@
         KF
     }
 
+    public enum OrderType {
+        /// <summary>
+        /// 已付款
+        /// </summary>
+        YFK,
+        /// <summary>
+        /// 未付款
+        /// </summary>
+        WFK,
+        /// <summary>
+        /// 抢购失败
+        /// </summary>
+        QGSB,
+        /// <summary>
+        /// 取消交易
+        /// </summary>
+        QXJY
+    }
+
 
 }

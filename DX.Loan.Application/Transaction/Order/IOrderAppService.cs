@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Abp.Application.Services.Dto;
+using DX.Loan.Transaction.Order.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +11,11 @@ namespace DX.Loan.Transaction.Order
     public interface IOrderAppService
     {
 
-        List<DX.Loan.Order> GetOrders();
+        List<GetOrdersListDto> GetOrdersList(GetOrdersInput input);
 
-        bool CreateOrder();
+        GetOrderDto GetOrder(EntityDto<long> input);
+
+        Task<bool> CreateOrder(CreateOrderInput input);
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using Abp.Domain.Repositories;
+﻿using Abp.Dependency;
+using Abp.Domain.Repositories;
+using Abp.Domain.Services;
 using Castle.Core.Logging;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DX.Loan.Trade
 {
-    public class TradeManager : ITradeManager
+    public class TradeManager : ITradeManager , IDomainService, ITransientDependency
     {
         private IRepository<FinanceTradeDetail, long> financeTradeDetailRepository;
         public ILogger Logger { get; set; }
