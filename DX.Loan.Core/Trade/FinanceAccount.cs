@@ -8,6 +8,9 @@ using Abp.Timing;
 
 namespace DX.Loan
 {
+    /// <summary>
+    /// 用户的账户信息表, 记录用户的等级, 资金
+    /// </summary>
     [Table("Finance_Account")]
     public class FinanceAccount: AuditedEntity<long>, IPassivable
     {

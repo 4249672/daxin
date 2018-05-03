@@ -63,7 +63,7 @@ namespace DX.Loan.Transaction
                 
                 FinanceTradeDetail entity = new FinanceTradeDetail();
                 entity.UserId = input.userId;
-                entity.Amount = input.Amount ?? 0;
+                entity.Amount = input.Amount;
                 entity.FinanceAccountId = account.Id;
                 entity.TradeType = TradeType.CZ.ToString();
                 entity.SerialNo = _tradeManager.GenerateTradeNo(tradeTyppe);

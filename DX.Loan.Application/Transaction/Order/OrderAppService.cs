@@ -1,10 +1,12 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using Abp.Runtime.Caching;
 using Abp.Runtime.Session;
 using Abp.UI;
 using AutoMapper;
 using DX.Loan.CustomerMaint;
+using DX.Loan.Trade;
 using DX.Loan.Transaction.Order;
 using DX.Loan.Transaction.Order.Dto;
 using System;
@@ -17,16 +19,17 @@ namespace DX.Loan.Transaction
 {
     public class OrderAppService : LoanAppServiceBase, IOrderAppService
     {
-        private ICustomerManager _customerManager;
+        private readonly ICustomerManager _customerManager;
         private readonly IRepository<DX.Loan.Order, long> _orderRepository;
         private readonly ICacheManager _cacheManager;
+        private readonly ITradeManager _tradeManager;
 
-
-        public Task<bool> CreateOrder(CreateOrderInput input)
+        [UnitOfWork]
+        public async Task<bool> CreateOrder(CreateOrderInput input)
         {
             var customer = _customerManager.GetCustomer(input.CustomerId);
             if(customer == null)
-                throw new UserFriendlyException("未找到对应客户信息,购买订单失败");
+                throw new UserFriendlyException("未找到对应订单信息,购买订单失败");
 
             long userId = AbpSession.GetUserId();
 
@@ -45,26 +48,34 @@ namespace DX.Loan.Transaction
             order.Source = customer.Source;
             order.Tel = customer.Tel;
             order.WeChat = customer.WeChat;
+            order.OrderAmount = customer.RecordCharge??0;//价格
 
-            order.OrderAmount = input.OrderAmount;
-            order.OrderNo = "";
-            order.Status = OrderType.YFK.ToString(); //已付款
+            order.OrderNo = GenerateOrderNo(OrderType.FK);
+            order.Status = OrderType.FK.ToString(); //已付款
             order.UserId = userId;
 
+            await _orderRepository.InsertAsync(order);
+            await _tradeManager.CreateTradeForOrderAsync(customer.RecordCharge ?? 0, customer.CustomerNo);
 
-
-
+            return true;
 
         }
 
         public GetOrderDto GetOrder(EntityDto<long> input)
         {
-            throw new NotImplementedException();
+            var order = _orderRepository.Get(input.Id);
+            return Mapper.Map<GetOrderDto>(order);
         }
 
         public List<GetOrdersListDto> GetOrdersList(GetOrdersInput input)
         {
-            throw new NotImplementedException();
+            
         }
+
+        private string GenerateOrderNo(OrderType tradeType)
+        {
+            return UniqueNumber.GetUniqueNumber(tradeType.ToString());
+        }
+
     }
 }

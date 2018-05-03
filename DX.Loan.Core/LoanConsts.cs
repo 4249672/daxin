@@ -40,19 +40,19 @@
         /// <summary>
         /// 已付款
         /// </summary>
-        YFK,
+        FK,
         /// <summary>
         /// 未付款
         /// </summary>
-        WFK,
+        WF,
         /// <summary>
         /// 抢购失败
         /// </summary>
-        QGSB,
+        SB,
         /// <summary>
         /// 取消交易
         /// </summary>
-        QXJY
+        QX
     }
 
 

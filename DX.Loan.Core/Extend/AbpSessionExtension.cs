@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DX.Loan.Extend
+namespace DX.Loan
 {
     public static class AbpSessionExtension
     {

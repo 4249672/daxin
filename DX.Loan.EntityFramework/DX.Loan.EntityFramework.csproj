@@ -210,6 +210,7 @@
     <Compile Include="EntityFramework\LoanDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\LoanRepositoryBase.cs" />
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
+    <Compile Include="EntityFramework\Repositories\OrderRepository.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.Designer.cs">
       <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
