@@ -16,5 +16,8 @@ namespace DX.Loan.Customer
         CustomerEditDto GetCustomerForEdit(NullableIdDto input);
 
         void DeleteCustomer(EntityDto input);
+
+        
+
     }
 }

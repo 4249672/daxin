@@ -12,7 +12,7 @@ namespace DX.Loan.Transaction.Order.Dto
     public class GetOrdersInput : PagedAndSortedInputDto, IShouldNormalize, ICustomValidate
     {
 
-        public long userID { get; set; }
+        public long UserID { get; set; }
 
         //订单生成的日期
         public DateTime? OrderStartDate { get; set; }

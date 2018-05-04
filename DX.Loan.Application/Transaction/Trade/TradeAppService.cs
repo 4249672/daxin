@@ -10,7 +10,6 @@ using Abp.Extensions;
 using Abp.Linq.Extensions;
 using Abp.Runtime.Caching;
 using Abp.Runtime.Session;
-using DX.Loan.Extend;
 using DX.Loan.Trade;
 using DX.Loan.Transaction.Trade.Dto;
 using System.Linq.Dynamic;
@@ -83,10 +82,12 @@ namespace DX.Loan.Transaction
                                                     .Select(m=>new TradeDetailsForUserDto { TradeType = m.TradeType, CreationTime=m.CreationTime,Amount=m.Amount,SerialNo=m.SerialNo})
                                                     .OrderBy(input.Sorting);
 
-            var cacheKey = @"{userId.ToString()}_{input.StartDate}_{input.EndDate}_{input.TradeType}";
+            string startDate = (input.StartDate ?? DateTime.MinValue).ToShortTimeString();
+            string endDate = (input.EndDate ?? DateTime.MinValue).ToShortTimeString();
+            var cacheKey = @"GetUserChargeForUserList_{userId.ToString()}_{startDate}_{endDate}_{input.TradeType}";
 
             var list = 
-                _cacheManager.GetCache<string, List<TradeDetailsForUserDto>>("TradeDetailListForUser").Get("TradeUser_" + cacheKey, ()=> dbSrc.ToList());
+                _cacheManager.GetCache<string, List<TradeDetailsForUserDto>>(AppConsts.Cache_TradeAppService_Method_UserChargeForUser).Get(cacheKey, ()=> dbSrc.ToList());
 
             var count = list.Count();
             var lists = list.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();

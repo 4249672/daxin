@@ -11,11 +11,17 @@ namespace DX.Loan.Transaction.Order
     public interface IOrderAppService
     {
 
-        List<GetOrdersListDto> GetOrdersList(GetOrdersInput input);
+        PagedResultDto<GetOrdersListDto> GetOrdersList(GetOrdersInput input);
 
-        GetOrderDto GetOrder(EntityDto<long> input);
+        GetOrderDto GetOrder(long userId,long Id);
 
         Task<bool> CreateOrder(CreateOrderInput input);
+
+        //仅供用户
+        PagedResultDto<GetOrdersListDto> GetOrdersListForUser(GetOrdersInput input);
+
+        //仅供用户
+        GetOrderDto GetOrderForUser(long Id);
 
     }
 }

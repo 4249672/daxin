@@ -11,9 +11,11 @@ namespace DX.Loan.IRepositories
     public interface IOrderRepository : IRepository<Order,long>
     {
 
-        IQueryable<Order> GetOrdersForUser(Expression<Func<Order, bool>> predicate);
+        IQueryable<Order> GetOrdersForUser(long userId, DateTime? startDate = null, DateTime? endDate = null);
 
-        Order GetOneOrderForUser(long Id);
+        Order GetOneOrderForUser(long userId, long Id);
+
+        IQueryable<Order> GetOrdersIncludingForUser(long userId, Expression<Func<Order, object>>[] propertySelector);
 
     }
 }

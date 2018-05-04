@@ -20,5 +20,14 @@
         /// </summary>
         public const int AccessDateRange = -3;
 
+        //缓存项的名称, 方便查找/设置缓存的时间
+        //TradeAppService 的方法 GetUserChargeForUser
+        public const string Cache_TradeAppService_Method_UserChargeForUser = "Cache_Method_TradeAppService_UserChargeForUser";
+
+        //OrderAppService
+        public const string Cache_OrderAppService_Method_OrdersList = "Cache_Order_OrdersList";
+
+
+
     }
 }

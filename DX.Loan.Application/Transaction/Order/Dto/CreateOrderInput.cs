@@ -11,13 +11,13 @@ namespace DX.Loan.Transaction.Order.Dto
 {
     public class CreateOrderInput
     {
-        public string OrderNo { get; set; }
+        //public string OrderNo { get; set; }
 
-        public string Status { get; set; }
+        //public string Status { get; set; }
 
-        public decimal? OrderAmount { get; set; }
+        //public decimal? OrderAmount { get; set; }
 
-        public long UserId { get; set; }
+        //public long UserId { get; set; }
 
         //------------------------------------------
 

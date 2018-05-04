@@ -15,14 +15,23 @@ namespace DX.Loan.EntityFramework.Repositories
         {
         }
         
-        public Order GetOneOrderForUser(long Id)
+        public Order GetOneOrderForUser(long userId,long Id)
         {
-            throw new NotImplementedException();
+            var order = Get(Id);
+            if (order.UserId == userId)
+                return order;
+            return null;
+        }
+        
+        public IQueryable<Order> GetOrdersForUser(long userId, DateTime? startDate = null, DateTime? endDate = null)
+        {
+            return GetAll().Where(m=>m.UserId == userId);
         }
 
-        public IQueryable<Order> GetOrdersForUser(Expression<Func<Order, bool>> predicate)
+        public IQueryable<Order> GetOrdersIncludingForUser(long userId, Expression<Func<Order, object>>[] propertySelector)
         {
-            throw new NotImplementedException();
+            return GetAllIncluding(propertySelector).Where(m => m.UserId == userId);
         }
+
     }
 }

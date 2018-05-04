@@ -211,9 +211,12 @@
     <Compile Include="Customer\Dto\CreateOrUpdateCustomerInput.cs" />
     <Compile Include="Customer\Dto\CustomerCreateInput.cs" />
     <Compile Include="Customer\Dto\CustomerDto.cs" />
+    <Compile Include="Customer\Dto\CustomerDtoMapping.cs" />
     <Compile Include="Customer\Dto\CustomerEditDto.cs" />
+    <Compile Include="Customer\Dto\CustomerForUserDto.cs" />
     <Compile Include="Customer\Dto\SearchCustomerInput.cs" />
     <Compile Include="Customer\ICustomerAppService.cs" />
+    <Compile Include="DtoMapper\IDtoMapping.cs" />
     <Compile Include="LoanApplicationModule.cs" />
     <Compile Include="LoanAppServiceBase.cs" />
     <Compile Include="AppConsts.cs" />
@@ -397,6 +400,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{358f5e61-4f45-4577-a339-fd68cc930f4a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DX.Loan.Core\DX.Loan.Core.csproj">
       <Project>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</Project>
       <Name>DX.Loan.Core</Name>
