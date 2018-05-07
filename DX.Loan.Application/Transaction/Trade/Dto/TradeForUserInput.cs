@@ -20,7 +20,7 @@ namespace DX.Loan.Transaction.Trade.Dto
         
         public void AddValidationErrors(CustomValidationContext context)
         {
-            if (StartDate.HasValue && EndDate.HasValue && StartDate.Value > EndDate)
+            if (StartDate.HasValue && EndDate.HasValue && StartDate.Value > EndDate.Value)
                 context.Results.Add(new ValidationResult("结束日期必须大于或等于开始日期"));
         }
 
@@ -29,7 +29,7 @@ namespace DX.Loan.Transaction.Trade.Dto
             if (string.IsNullOrWhiteSpace(Sorting))
                 this.Sorting = "CreationTime DESC";
             if (!EndDate.HasValue)
-                EndDate = DateTime.Now.AddMonths(AppConsts.AccessDateRange);
+                EndDate = DateTime.Now.AddMonths(AppConsts.AccessTradeLimitMonthRange);
             if (!StartDate.HasValue)
                 StartDate = DateTime.Now;
         }

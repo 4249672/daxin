@@ -17,7 +17,7 @@ namespace DX.Loan.Customer
 
         void DeleteCustomer(EntityDto input);
 
-        
+        PagedResultDto<CustomerForUserPageDto> GetCustomersForUserByList(SearchCustomerForUserInput input);
 
     }
 }

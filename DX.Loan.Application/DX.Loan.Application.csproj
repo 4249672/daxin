@@ -214,6 +214,7 @@
     <Compile Include="Customer\Dto\CustomerDtoMapping.cs" />
     <Compile Include="Customer\Dto\CustomerEditDto.cs" />
     <Compile Include="Customer\Dto\CustomerForUserDto.cs" />
+    <Compile Include="Customer\Dto\SearchCustomerForUserInput.cs" />
     <Compile Include="Customer\Dto\SearchCustomerInput.cs" />
     <Compile Include="Customer\ICustomerAppService.cs" />
     <Compile Include="DtoMapper\IDtoMapping.cs" />

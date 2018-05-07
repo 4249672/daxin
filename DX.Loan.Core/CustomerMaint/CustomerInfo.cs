@@ -69,5 +69,10 @@ namespace DX.Loan
         public decimal? RecordCharge { get; set; }
         
         public bool IsActive { get; set; }
+
+        //购买此条信息的客户ID , 用于在刷新列表时候使用
+        [MaxLength(2000)]
+        public string BuyUserIds { get; set; }
+
     }
 }

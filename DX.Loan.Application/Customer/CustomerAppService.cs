@@ -13,16 +13,56 @@ using Abp.Authorization;
 using DX.Loan.Authorization;
 using Abp.Configuration;
 using DX.Loan.Configuration;
+using DX.Loan.CustomerMaint;
+using Common;
+using Abp.Runtime.Caching;
 
 namespace DX.Loan.Customer
 {
     public class CustomerAppService: LoanAppServiceBase, ICustomerAppService
     {
         private IRepository<CustomerInfo,long> _customerRespository;
+        private readonly ICustomerManager _customerManage;
+        private readonly ICacheManager _cacheManager;
 
-        public CustomerAppService(IRepository<CustomerInfo, long> customerRespository) {
+        public CustomerAppService(IRepository<CustomerInfo, long> customerRespository, ICustomerManager customerManage, ICacheManager cacheManager) {
             _customerRespository = customerRespository;
+            _customerManage = customerManage;
+            _cacheManager = cacheManager;
         }
+
+        #region 给客户查看的
+
+        public PagedResultDto<CustomerForUserPageDto> GetCustomersForUserByList(SearchCustomerForUserInput input) {
+
+            List<CustomerInfo> cacheList = GetCacheCustomerForUserByList();
+
+
+
+
+        }
+
+
+        private List<CustomerInfo> GetCacheCustomerForUserByList() {
+
+            var startDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
+            var endDate = DateTime.Now.AddDays(AppConsts.AccessCustomerLimitDayRange).ToString("yyyy-MM-dd 00:00:00").AsDateTimeOfNull();
+            
+            CustomerSearchCondition condition = new CustomerSearchCondition() { CreationTimeFrom = startDate , CreationTimeTo = endDate };
+            
+            string cacheKey = "Global_CustomerDBList";
+            var list = _cacheManager.GetCache<string, List<CustomerInfo>>(AppConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
+                .Get(cacheKey, () => _customerManage.GetCustomersList(condition).ToList());
+            return list;
+
+        }
+
+
+        #endregion
+
+
+
+
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer)]
         public ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input) {
 

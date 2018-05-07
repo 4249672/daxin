@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DX.Loan.Customer.Dto
 {
+    /// <summary>
+    /// 显示给用户的列表
+    /// </summary>
     public class CustomerForUserPageDto
     {
         public long Id { get; set; }
@@ -40,9 +43,12 @@ namespace DX.Loan.Customer.Dto
         public string AppEquipment { get; set; }
         //来源
         public string Source { get; set; }
-        
 
         //交易次数，被售出的次数
-        public int? TransTimes { get; set; }
+        //public int? TransTimes { get; set; }
+
+        // 显示给用户的状态 : 可购买 / 不可购 / 已购买
+        public string ShowForUserStatus { get; set; }
+
     }
 }
