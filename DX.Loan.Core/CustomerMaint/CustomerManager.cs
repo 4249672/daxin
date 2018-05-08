@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
+using Abp.Runtime.Caching;
+using Abp.AutoMapper;
 
 namespace DX.Loan.CustomerMaint
 {
@@ -16,10 +19,12 @@ namespace DX.Loan.CustomerMaint
     {
         private IRepository<CustomerInfo, long> _customerRepository;
         public ILogger Logger { get; set; }
+        public ICacheManager _cacheManager;
 
-        public CustomerManager(IRepository<CustomerInfo, long> customerRepository) {
+        public CustomerManager(IRepository<CustomerInfo, long> customerRepository, ICacheManager cacheManager) {
             _customerRepository = customerRepository;
             Logger = NullLogger.Instance;
+            _cacheManager = cacheManager;
         }
 
         public CustomerInfo GetCustomer(long Id)
@@ -48,5 +53,23 @@ namespace DX.Loan.CustomerMaint
                                         ;
             return list;
         }
+
+
+        public List<CustomerInfo> GetCacheCustomerForUserByList()
+        {
+
+            var startDate = DateTime.Now.AddDays(LoanConsts.AccessCustomerLimitDayRange).ToString("yyyy-MM-dd 00:00:00").AsDateTimeOfNull();
+            var endDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
+
+            CustomerSearchCondition condition = new CustomerSearchCondition() { CreationTimeFrom = startDate, CreationTimeTo = endDate };
+
+            string cacheKey = "global_CustomerDBList";
+            var list = _cacheManager.GetCache<string, List<CustomerInfo>>(LoanConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
+                .Get(cacheKey, () => GetCustomersList(condition).ToList().MapTo<List<CustomerInfo>>());
+            return list;
+
+        }
+
+
     }
 }

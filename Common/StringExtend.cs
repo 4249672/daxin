@@ -13,6 +13,8 @@ namespace Common
         /// <returns></returns>
         public static string HideIdCard(this string idCard, int startIndex = 6, int length = 8)
         {
+            if (string.IsNullOrWhiteSpace(idCard))
+                return "";
             return idCard.Substring(0, startIndex) + "".PadLeft(length, '*') + idCard.Substring(startIndex + length);
         }
 

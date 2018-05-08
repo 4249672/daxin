@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Dynamic;
+using System.Threading;
 
 namespace DX.Loan.Transaction
 {
@@ -27,16 +28,46 @@ namespace DX.Loan.Transaction
         private readonly IOrderRepository _orderRepository;
         private readonly ICacheManager _cacheManager;
         private readonly ITradeManager _tradeManager;
+        private static object _lock = new object();
 
-        [UnitOfWork]
+        public OrderAppService(ICustomerManager customerManager, IOrderRepository orderRepository, ICacheManager cacheManager, ITradeManager tradeManager) {
+            _customerManager = customerManager;
+            _orderRepository = orderRepository;
+            _cacheManager = cacheManager;
+            _tradeManager = tradeManager;
+        }
+
+        
+        [UnitOfWork(isTransactional:true)]
         public async Task<bool> CreateOrder(CreateOrderInput input)
         {
-            var customer = _customerManager.GetCustomer(input.CustomerId);
-            if(customer == null)
-                throw new UserFriendlyException("未找到对应订单信息,购买订单失败");
-
             long userId = AbpSession.GetUserId();
 
+            var cachelist = _customerManager.GetCacheCustomerForUserByList();
+            var cust = cachelist.Where(m => m.Id == input.CustomerId).FirstOrDefault();
+            if(cust == null)
+                throw new UserFriendlyException("未找到对应订单信息,购买失败");
+
+            //更新缓存
+            lock (_lock) {
+                int tradeCnt = cust.TransTimes ?? 0;
+                tradeCnt++;
+                if (tradeCnt > AppConsts.RecordCanSaleTimes)
+                    throw new UserFriendlyException("超过预定数量,购买失败");
+                if (cust.BuyUserIds.IndexOf(userId.ToString()) != -1)
+                    throw new UserFriendlyException("请勿重复购买过此记录");
+
+                cust.TransTimes = (cust.TransTimes ?? 0) + 1;
+                cust.BuyUserIds = cust.BuyUserIds + "," + userId.ToString();
+            }
+            
+            //下面的代码可以放到队列
+            var customer = _customerManager.GetCustomer(input.CustomerId);
+            if(customer == null)
+                throw new UserFriendlyException("未找到对应订单信息,购买失败");
+            if(customer.BuyUserIds.IndexOf(userId.ToString())!=-1)
+                throw new UserFriendlyException("请勿重复购买过此记录");
+            
             var order = new DX.Loan.Order();
             order.Age = customer.Age;
             order.AppEquipment = customer.AppEquipment;
@@ -60,7 +91,8 @@ namespace DX.Loan.Transaction
 
             await _orderRepository.InsertAsync(order);
             await _tradeManager.CreateTradeForOrderAsync(customer.RecordCharge ?? 0, customer.CustomerNo);
-
+            customer.BuyUserIds = customer.BuyUserIds + "," + userId.ToString(); // 更新CustomerInfo 的 BuyUserIds 字段
+            
             return true;
 
         }

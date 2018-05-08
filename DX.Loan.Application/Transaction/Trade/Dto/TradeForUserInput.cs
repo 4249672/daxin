@@ -28,10 +28,10 @@ namespace DX.Loan.Transaction.Trade.Dto
         {
             if (string.IsNullOrWhiteSpace(Sorting))
                 this.Sorting = "CreationTime DESC";
-            if (!EndDate.HasValue)
-                EndDate = DateTime.Now.AddMonths(AppConsts.AccessTradeLimitMonthRange);
             if (!StartDate.HasValue)
-                StartDate = DateTime.Now;
+                StartDate = DateTime.Now.AddMonths(AppConsts.AccessTradeLimitMonthRange);
+            if (!EndDate.HasValue)
+                EndDate = DateTime.Now;
         }
     }
 }

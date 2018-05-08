@@ -26,11 +26,12 @@
         /// </summary>
         public const int AccessCustomerLimitMonthRange = -3;
 
-        /// <summary>
-        /// 默认可访问Customer记录天数 , 用于缓存
-        /// </summary>
-        public const int AccessCustomerLimitDayRange = -3;
+        
 
+        /// <summary>
+        /// 一条Customer记录能卖的次数
+        /// </summary>
+        public const int RecordCanSaleTimes = 6;
 
         #endregion
 
@@ -43,8 +44,7 @@
         //OrderAppService
         public const string Cache_OrderAppService_Method_OrdersList = "Cache_Order_OrdersList";
 
-        //CustomerAppService
-        public const string Cache_CustomerAppService_Method_CacheCustomerForUserByList = "Cache_CustomerAppService_Method_CacheCustomerForUserByList";
+        
 
     }
 }

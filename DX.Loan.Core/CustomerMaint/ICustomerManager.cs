@@ -13,5 +13,6 @@ namespace DX.Loan.CustomerMaint
 
         IQueryable<CustomerInfo> GetCustomersList(CustomerSearchCondition input);
 
+        List<CustomerInfo> GetCacheCustomerForUserByList();
     }
 }

@@ -47,8 +47,10 @@ namespace DX.Loan.Customer.Dto
         //交易次数，被售出的次数
         //public int? TransTimes { get; set; }
 
-        // 显示给用户的状态 : 可购买 / 不可购 / 已购买
+        // 显示给用户的状态 : 可购买 Y / 不可购 N / 已购买 C
         public string ShowForUserStatus { get; set; }
 
+        //购买人的ID , 不需要显示到DTO
+        public string BuyUserIds { get; set; }
     }
 }

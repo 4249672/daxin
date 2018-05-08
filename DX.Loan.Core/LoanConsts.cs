@@ -9,8 +9,14 @@
 
         public const bool MultiTenancyEnabled = true;
 
-        
+        /// <summary>
+        /// 默认可访问Customer记录天数 , 用于缓存
+        /// </summary>
+        public const int AccessCustomerLimitDayRange = -30;
 
+
+        //CustomerAppService
+        public const string Cache_CustomerAppService_Method_CacheCustomerForUserByList = "Cache_CustomerAppService_Method_CacheCustomerForUserByList";
     }
 
     public enum TradeType {
@@ -53,6 +59,22 @@
         /// 取消交易
         /// </summary>
         QX
+    }
+
+    public enum CustomerStatus {
+        /// <summary>
+        /// 可购买
+        /// </summary>
+        Y,
+        /// <summary>
+        /// 不可购
+        /// </summary>
+        N,
+        /// <summary>
+        ///  已购买
+        /// </summary>
+        C
+
     }
 
 

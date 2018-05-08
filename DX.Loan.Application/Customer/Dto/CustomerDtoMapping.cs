@@ -29,8 +29,8 @@ namespace DX.Loan.Customer.Dto
         }
         
         private void CreateMapperIntenal(IMapperConfigurationExpression mapperConfig) {
-            var map = mapperConfig.CreateMap<CustomerInfo, CustomerForUserPageDto>().AfterMap((src, dest) => dest.IdCard = src.IdCard.HideIdCard());
-            //map.ForMember(dto => dto.IdCard, opt => opt.MapFrom(n => n.IdCard));
+            var map = mapperConfig.CreateMap<CustomerInfo, CustomerForUserPageDto>().AfterMap((src, dest) => dest.IdCard = src.IdCard.HideIdCard()); //隐藏身份证位数
+            map.ForMember(dto => dto.ShowForUserStatus, opt => opt.MapFrom(n => (n.TransTimes??0) < AppConsts.RecordCanSaleTimes ? CustomerStatus.Y.ToString() : CustomerStatus.N.ToString())); //限制出售的次数
         }
         
     }

@@ -16,6 +16,8 @@ using DX.Loan.Configuration;
 using DX.Loan.CustomerMaint;
 using Common;
 using Abp.Runtime.Caching;
+using Abp.Runtime.Session;
+using AutoMapper;
 
 namespace DX.Loan.Customer
 {
@@ -34,35 +36,39 @@ namespace DX.Loan.Customer
         #region 给客户查看的
 
         public PagedResultDto<CustomerForUserPageDto> GetCustomersForUserByList(SearchCustomerForUserInput input) {
-
-            List<CustomerInfo> cacheList = GetCacheCustomerForUserByList();
-
-
-
-
-        }
-
-
-        private List<CustomerInfo> GetCacheCustomerForUserByList() {
-
-            var startDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
-            var endDate = DateTime.Now.AddDays(AppConsts.AccessCustomerLimitDayRange).ToString("yyyy-MM-dd 00:00:00").AsDateTimeOfNull();
             
-            CustomerSearchCondition condition = new CustomerSearchCondition() { CreationTimeFrom = startDate , CreationTimeTo = endDate };
+            List<CustomerInfo> cacheList = _customerManage.GetCacheCustomerForUserByList();
+
+            var count = cacheList.Count();
+            var lists = cacheList.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+
+            var dtoList = lists.MapTo<List<CustomerForUserPageDto>>();
             
-            string cacheKey = "Global_CustomerDBList";
-            var list = _cacheManager.GetCache<string, List<CustomerInfo>>(AppConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
-                .Get(cacheKey, () => _customerManage.GetCustomersList(condition).ToList());
-            return list;
-
+            var userId = ","+AbpSession.GetUserId().ToString() + ",";
+            Parallel.ForEach(dtoList, m => {
+                var ids = "," + m.BuyUserIds;
+                if (ids.IndexOf(userId) != -1)
+                    m.ShowForUserStatus = CustomerStatus.C.ToString();
+            });
+            return new PagedResultDto<CustomerForUserPageDto>(count, dtoList);
         }
+        
+        //private List<CustomerForUserPageDto> GetCacheCustomerForUserByList() {
 
+        //    var startDate = DateTime.Now.AddDays(AppConsts.AccessCustomerLimitDayRange).ToString("yyyy-MM-dd 00:00:00").AsDateTimeOfNull();
+        //    var endDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
+            
+        //    CustomerSearchCondition condition = new CustomerSearchCondition() { CreationTimeFrom = startDate , CreationTimeTo = endDate };
+            
+        //    string cacheKey = "Global_CustomerDBList";
+        //    var list = _cacheManager.GetCache<string, List<CustomerForUserPageDto>>(AppConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
+        //        .Get(cacheKey, () =>_customerManage.GetCustomersList(condition).ToList().MapTo<List<CustomerForUserPageDto>>());
+        //    return list;
 
+        //}
+        
         #endregion
-
-
-
-
+        
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer)]
         public ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input) {
 

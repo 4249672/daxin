@@ -46,9 +46,9 @@ namespace DX.Loan.Customer.Dto
             if (string.IsNullOrWhiteSpace(Sorting))
                 this.Sorting = "CreationTime DESC";
             if (!startDate.HasValue)
-                startDate = DateTime.Now;
+                startDate = DateTime.Now.AddMonths(AppConsts.AccessCustomerLimitMonthRange);
             if (!endDate.HasValue)
-                endDate = DateTime.Now.AddMonths(AppConsts.AccessCustomerLimitMonthRange);
+                endDate = DateTime.Now;
         }
 
     }

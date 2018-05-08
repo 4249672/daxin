@@ -42,6 +42,8 @@ namespace DX.Loan.Authorization.Users
         private readonly IRepository<UserPermissionSetting, long> _userPermissionRepository;
         private readonly IRepository<UserRole, long> _userRoleRepository;
         private readonly IUserPolicy _userPolicy;
+        private IRepository<FinanceAccount,long> _financeAccountRepository;
+
 
         public UserAppService(
             RoleManager roleManager,
@@ -298,6 +300,15 @@ namespace DX.Loan.Authorization.Users
 
             CheckErrors(await UserManager.CreateAsync(user));
             await CurrentUnitOfWork.SaveChangesAsync(); //To get new user's Id.
+
+            FinanceAccount account = new FinanceAccount();
+            account.UserId = user.Id;
+            account.Advance = 0;
+            account.AdvanceForzen = 0;
+            account.Blance = 0;
+            account.BlanceFrozen = 0;
+            account.IsActive = true;
+            await _financeAccountRepository.InsertAsync(account);
 
             //Notifications
             await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
