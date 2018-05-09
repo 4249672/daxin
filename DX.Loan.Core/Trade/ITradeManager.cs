@@ -17,7 +17,7 @@ namespace DX.Loan.Trade
         /// <param name="amount"></param>
         /// <param name="customerNo"></param>
         /// <returns></returns>
-        Task<bool> CreateTradeForOrderAsync(decimal amount, string customerNo);
+        Task<bool> CreateTradeForOrderAsync(decimal amount, string orderNo);
 
         //产生交易单号
         string GenerateTradeNo(TradeType tradeType);

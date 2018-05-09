@@ -90,7 +90,7 @@ namespace DX.Loan.Transaction
             order.UserId = userId;
 
             await _orderRepository.InsertAsync(order);
-            await _tradeManager.CreateTradeForOrderAsync(customer.RecordCharge ?? 0, customer.CustomerNo);
+            await _tradeManager.CreateTradeForOrderAsync(customer.RecordCharge ?? 0, order.OrderNo);
             customer.BuyUserIds = customer.BuyUserIds + "," + userId.ToString(); // 更新CustomerInfo 的 BuyUserIds 字段
             
             return true;

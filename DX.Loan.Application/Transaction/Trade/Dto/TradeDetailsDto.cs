@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DX.Loan.Transaction.Trade.Dto
 {
-    [AutoMapFrom(typeof(FinanceTradeDetail))]
+    //[AutoMapFrom(typeof(FinanceTradeDetail))]
     public class TradeDetailsDto : CreationAuditedEntityDto<long>
     {
         public long UserId { get; set; }

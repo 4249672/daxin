@@ -302,6 +302,17 @@
     <text name="CustomerDeleteWarningMessage" value="贷款人信息 {0} 将被删除" />
 
     <text name="CreateNew" value="创建"></text>
+    
+    <!--Recharge-->
+    <text name="Recharge" value="充值"></text>
+    <text name="SerialNo" value="编号"></text>
+    <text name="TradeType" value="交易类型"></text>
+    <text name="Amount" value="金额"></text>
+    <text name="RemarkSubmit" value="申请备注"></text>
+    <text name="RemarkAudit" value="审核备注"></text>
+    <text name="RefNo" value="订单编号"></text>
+
+
 
   </texts>
 </localizationDictionary>

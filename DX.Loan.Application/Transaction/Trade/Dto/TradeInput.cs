@@ -12,10 +12,19 @@ namespace DX.Loan.Transaction.Trade.Dto
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
-        
+
+        public string TradeType { get; set; }
+
         public void Normalize()
         {
-            this.Sorting = "CreationTime";
+            if (string.IsNullOrWhiteSpace(Sorting))
+                this.Sorting = "CreationTime DESC";
+
+            if (!StartDate.HasValue)
+                StartDate = DateTime.Now.AddDays(-1);
+            if (!EndDate.HasValue)
+                EndDate = DateTime.Now;
+
         }
     }
 }

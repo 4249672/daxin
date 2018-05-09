@@ -24,13 +24,13 @@ namespace DX.Loan.Trade
             AbpSession = NullAbpSession.Instance;
         }
 
-        public async Task<bool> CreateTradeForOrderAsync(decimal amount,string customerNo) {
+        public async Task<bool> CreateTradeForOrderAsync(decimal amount,string orderNo) {
 
             try {
                 FinanceTradeDetail entity = new FinanceTradeDetail();
                 entity.Amount = amount;
                 entity.FinanceAccountId = AbpSession.GetFinanceAccountId();
-                entity.RefNo = customerNo;
+                entity.RefNo = orderNo;
                 entity.SerialNo = GenerateTradeNo(TradeType.XF);
                 entity.UserId = AbpSession.GetUserId();
                 await financeTradeDetailRepository.InsertAsync(entity);

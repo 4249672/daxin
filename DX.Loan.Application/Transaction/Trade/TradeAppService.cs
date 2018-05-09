@@ -13,6 +13,7 @@ using Abp.Runtime.Session;
 using DX.Loan.Trade;
 using DX.Loan.Transaction.Trade.Dto;
 using System.Linq.Dynamic;
+using AutoMapper;
 
 namespace DX.Loan.Transaction
 {
@@ -97,7 +98,15 @@ namespace DX.Loan.Transaction
 
         public PagedResultDto<TradeDetailsDto> GetUserTradeRecordList(TradeInput input)
         {
-            throw new NotImplementedException();
+            var dbSrc = _financeTradeDetail.GetAll().Where(m => m.UserId == input.userID)
+                                                    .WhereIf(input.StartDate.HasValue, m => m.CreationTime >= input.StartDate.Value)
+                                                    .WhereIf(input.EndDate.HasValue, m => m.CreationTime <= input.EndDate.Value)
+                                                    .WhereIf(input.TradeType.IsNullOrWhiteSpace(), m => m.TradeType == input.TradeType)
+                                                    .OrderBy(input.Sorting);
+            var count = dbSrc.Count();
+            var lists = dbSrc.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+            var dtoList = Mapper.Map<List<TradeDetailsDto>>(lists);
+            return new PagedResultDto<TradeDetailsDto>(count, dtoList);
         }
 
         

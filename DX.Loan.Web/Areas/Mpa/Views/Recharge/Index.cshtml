@@ -1,0 +1,65 @@
+﻿@using Abp.Application.Services.Dto
+@using DX.Loan.Web.Areas.Mpa.Models.Common.Modals
+@using Abp.Web.Mvc.Extensions
+@using DX.Loan.Authorization
+@using DX.Loan.Web.Navigation
+@model DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerListViewModel
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Customer.CustomerMaintenance;
+}
+@section Styles
+{
+    @*@Html.IncludeStyle("~/Areas/Mpa/Views/Roles/Index.min.css")*@
+    @Html.IncludeStyle("/libs/bootstrap-chinese-region/bootstrap-chinese-region.css")
+}
+@section Scripts
+{
+    @*@Html.IncludeScript("~/Areas/Mpa/Views/Common/_PermissionTree.js")*@
+    @Html.IncludeScript("/libs/bootstrap-chinese-region/bootstrap-chinese-region.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Customer/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Customer/Index.js")
+
+}
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Recharge")</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions.Pages_Administration_Customer_Create))
+        {
+            <button id="CreateNewButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("Create")</button>
+        }
+
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-title portlet-title-filter">
+        <div class="inputs inputs-full-width">
+            <div class="portlet-input">
+                <form>
+                    <div class="row">
+                        <div class="col-xs-6">
+
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <button id="RefreshButton" class="btn btn-default" style="display: block; width: 100%"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div id="RechargeTable"></div>
+    </div>
+</div>
