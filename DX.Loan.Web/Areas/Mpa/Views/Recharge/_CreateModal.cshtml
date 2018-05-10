@@ -1,0 +1,45 @@
+﻿@using DX.Loan.Web.Areas.Mpa.Models.Common.Modals
+@using Abp.Extensions
+@model DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("Edit")) : L("CreateNew")))
+
+<div class="modal-body">
+    <form role="form" name="CustomerForm" novalidate class="form-validation">
+        
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input class="form-control@(Model.Name.IsNullOrEmpty() ? "" : " edited")" type="text" name="Name" value="@Model.Name" required maxlength="20" />
+            <label>@L("Name")</label>
+        </div>
+
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Age" class="form-control@(!Model.Age.HasValue ? "" : " edited")" value="@Model.Age" maxlength="3" />
+            <label>@L("Age")</label>
+        </div>
+
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <label>交易类型</label>
+
+            @Html.DropDownListFor(m => m.CreditRating, new List<SelectListItem>() { new SelectListItem() {  Text="",Value= "0" }, new SelectListItem() { Text = "充值", Value = "1" }
+            ,new SelectListItem() {  Text="扣款",Value= "2" }
+            }, new {
+                 @class = "form-control selectpicker",
+                 data_live_search = "true",
+            })
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Tel" class="form-control@(Model.Tel.IsNullOrEmpty() ? "" : " edited")" value="@Model.Tel" maxlength="40" />
+            <label>金额</label>
+        </div>
+
+
+
+
+
+
+    </form>
+</div>
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

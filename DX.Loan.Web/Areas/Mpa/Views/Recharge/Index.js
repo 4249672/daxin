@@ -11,9 +11,15 @@
         };
 
         var _createOrEditModal = new app.ModalManager({
-            viewUrl: abp.appPath + 'Mpa/Customer/CreateModal',
-            scriptUrl: abp.appPath + 'Areas/Mpa/Views/Customer/_CreateModal.js',
-            modalClass: 'CreateCustomerModal'
+            viewUrl: abp.appPath + 'Mpa/Recharge/CreateModal',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/Recharge/_CreateModal.js',
+            modalClass: 'createRechargeModal'
+        });
+
+        var _userModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'Mpa/Users/PermissionsModal',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/Users/_PermissionsModal.js',
+            modalClass: 'UserPermissionsModal'
         });
 
         _$table.jtable({
@@ -82,7 +88,7 @@
 
         getCustomers();
 
-        abp.event.on('app.createCustomerModalSaved', function () {
+        abp.event.on('app.createRechargeModalSaved', function () {
             getCustomers();
         })
 

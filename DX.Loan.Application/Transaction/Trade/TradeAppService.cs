@@ -38,7 +38,7 @@ namespace DX.Loan.Transaction
         /// <param name="input"></param>
         /// <returns></returns>
         [UnitOfWork]
-        public bool RechargeTrade(RechargeInput input)
+        public bool CreateRechargeTrade(RechargeInput input)
         {
             return OperTrade(input, TradeType.CZ);
         }
@@ -48,7 +48,7 @@ namespace DX.Loan.Transaction
         /// <param name="input"></param>
         /// <returns></returns>
         [UnitOfWork]
-        public bool DeductionTrade(RechargeInput input)
+        public bool CreateDeductionTrade(RechargeInput input)
         {
             if (input.Amount > 0)
                 input.Amount = input.Amount * -1;

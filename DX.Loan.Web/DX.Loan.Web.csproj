@@ -615,6 +615,7 @@
     <Content Include="Areas\Mpa\Views\Customer\Index.js" />
     <Content Include="Areas\Mpa\Views\Customer\_CreateOrEditModal.js" />
     <Content Include="Areas\Mpa\Views\Recharge\Index.js" />
+    <Content Include="Areas\Mpa\Views\Recharge\_CreateModal.js" />
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
@@ -3058,6 +3059,7 @@
     <Content Include="libs\bootstrap-chinese-region\sql_areas.json" />
     <Content Include="libs\bootstrap-chinese-region\sql_areas_names.json" />
     <Content Include="Areas\Mpa\Views\Recharge\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\Recharge\_CreateModal.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -3146,6 +3148,8 @@
     <Compile Include="Areas\Mpa\Models\Customer\CustomerListViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Customer\CustomerViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Trade\RechargeListViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Trade\RechargeViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Trade\UsersListViewModel.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />

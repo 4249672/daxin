@@ -15,6 +15,7 @@ using DX.Loan.Customer;
 using DX.Loan.Transaction;
 using DX.Loan.Transaction.Trade.Dto;
 using DX.Loan.Web.Areas.Mpa.Models.Trade;
+using DX.Loan.Authorization.Users;
 
 namespace DX.Loan.Web.Areas.Mpa.Controllers
 {
@@ -22,10 +23,12 @@ namespace DX.Loan.Web.Areas.Mpa.Controllers
     public class RechargeController : LoanControllerBase
     {
         private readonly ITradeAppService _tradeAppService;
+        private readonly IUserAppService _userAppService;
 
-        public RechargeController(ITradeAppService tradeAppService)
+        public RechargeController(ITradeAppService tradeAppService, IUserAppService userAppService)
         {
             _tradeAppService = tradeAppService;
+            _userAppService = userAppService;
         }
         
         // GET: Mpa/Recharge
@@ -41,6 +44,16 @@ namespace DX.Loan.Web.Areas.Mpa.Controllers
         {
             return PartialView("_CreateModal");
         }
-        
+
+        //public async Task<PartialViewResult> UsersModal(long id)
+        //{
+        //    var users = await _userAppService.GetUsers(new Authorization.Users.Dto.GetUsersInput() { });
+
+        //    UsersListViewModel viewModel = new UsersListViewModel();
+        //    viewModel.Users = users;
+
+        //    return PartialView("_PermissionsModal", viewModel);
+        //}
+
     }
 }

@@ -15,14 +15,14 @@ namespace DX.Loan.Transaction
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        bool RechargeTrade(RechargeInput input);
+        bool CreateRechargeTrade(RechargeInput input);
 
         /// <summary>
         /// 消费
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        bool DeductionTrade(RechargeInput input);
+        bool CreateDeductionTrade(RechargeInput input);
         
         
         /// <summary>
