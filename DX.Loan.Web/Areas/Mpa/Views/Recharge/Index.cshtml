@@ -6,19 +6,17 @@
 @model DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerListViewModel
 
 @{
-    ViewBag.CurrentPageName = PageNames.App.Customer.CustomerMaintenance;
+    ViewBag.CurrentPageName = PageNames.App.Trade.Recharge;
 }
 @section Styles
 {
     @*@Html.IncludeStyle("~/Areas/Mpa/Views/Roles/Index.min.css")*@
-    @Html.IncludeStyle("/libs/bootstrap-chinese-region/bootstrap-chinese-region.css")
+
 }
 @section Scripts
 {
-    @*@Html.IncludeScript("~/Areas/Mpa/Views/Common/_PermissionTree.js")*@
-    @Html.IncludeScript("/libs/bootstrap-chinese-region/bootstrap-chinese-region.js")
-    @Html.IncludeScript("~/Areas/Mpa/Views/Customer/_CreateOrEditModal.js")
-    @Html.IncludeScript("~/Areas/Mpa/Views/Customer/Index.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Recharge/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Recharge/Index.js")
 
 }
 
@@ -33,7 +31,7 @@
         </div>
     </div>
     <div class="col-xs-6 text-right">
-        @if (IsGranted(AppPermissions.Pages_Administration_Customer_Create))
+        @if (IsGranted(AppPermissions.Pages_Administration_Recharge_Create))
         {
             <button id="CreateNewButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("Create")</button>
         }

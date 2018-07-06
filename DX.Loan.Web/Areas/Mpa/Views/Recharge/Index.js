@@ -5,9 +5,9 @@
         var _service = abp.services.app.trade;
 
         var _permissions = {
-            create: abp.auth.hasPermission('Pages.Administration.Customer.Create'),
-            edit: abp.auth.hasPermission('Pages.Administration.Customer.Edit'),
-            'delete': abp.auth.hasPermission('Pages.Administration.Customer.Delete')
+            create: abp.auth.hasPermission('Pages.Administration.Recharge.Create'),
+            edit: abp.auth.hasPermission('Pages.Administration.Recharge.Edit'),
+            'delete': abp.auth.hasPermission('Pages.Administration.Recharge.Delete')
         };
 
         var _createOrEditModal = new app.ModalManager({

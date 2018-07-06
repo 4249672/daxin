@@ -75,8 +75,8 @@ namespace DX.Loan.Authorization.Users
                 .WhereIf(
                     !input.Filter.IsNullOrWhiteSpace(),
                     u =>
-                        u.Name.Contains(input.Filter) ||
-                        u.Surname.Contains(input.Filter) ||
+                        //u.Name.Contains(input.Filter) ||
+                        //u.Surname.Contains(input.Filter) ||
                         u.UserName.Contains(input.Filter) ||
                         u.EmailAddress.Contains(input.Filter)
                 );

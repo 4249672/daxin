@@ -44,6 +44,19 @@
         public const string Pages_Administration_Customer_Delete = "Pages.Administration.Customer.Delete";
 
 
+        //充值
+        public const string Pages_Administration_Recharge = "Pages.Administration.Recharge";
+        public const string Pages_Administration_Recharge_Create = "Pages.Administration.Recharge.Create";
+        public const string Pages_Administration_Recharge_Edit = "Pages.Administration.Recharge.Edit";
+        public const string Pages_Administration_Recharge_Delete = "Pages.Administration.Recharge.Delete";
+
+        //订单
+        public const string Pages_Administration_Order = "Pages.Administration.Order";
+        public const string Pages_Administration_Order_Create = "Pages.Administration.Order.Create";
+        public const string Pages_Administration_Order_Edit = "Pages.Administration.Order.Edit";
+        public const string Pages_Administration_Order_Delete = "Pages.Administration.Order.Delete";
+
+        
         //TENANT-SPECIFIC PERMISSIONS
 
         public const string Pages_Tenant_Dashboard = "Pages.Tenant.Dashboard";

@@ -15,7 +15,8 @@ namespace DX.Loan.Authorization.Users.Dto
         {
             if (string.IsNullOrEmpty(Sorting))
             {
-                Sorting = "Name,Surname";
+                //Sorting = "Name,Surname";
+                Sorting = "CreationTime";
             }
         }
     }

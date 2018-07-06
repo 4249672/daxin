@@ -483,6 +483,10 @@
     <Compile Include="Migrations\201802241152133_20180224.Designer.cs">
       <DependentUpon>201802241152133_20180224.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806130938585_2018-06-13.cs" />
+    <Compile Include="Migrations\201806130938585_2018-06-13.Designer.cs">
+      <DependentUpon>201806130938585_2018-06-13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="LoanDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -702,6 +706,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802241152133_20180224.resx">
       <DependentUpon>201802241152133_20180224.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806130938585_2018-06-13.resx">
+      <DependentUpon>201806130938585_2018-06-13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

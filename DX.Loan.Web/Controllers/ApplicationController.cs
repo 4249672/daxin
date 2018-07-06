@@ -13,7 +13,9 @@ namespace DX.Loan.Web.Controllers
             /* Enable next line to redirect to Multi-Page Application */
             /* return RedirectToAction("Index", "Home", new {area = "Mpa"}); */
 
-            return View("~/App/common/views/layout/layout.cshtml"); //Layout of the angular application.
+            //return View("~/App/common/views/layout/layout.cshtml"); //Layout of the angular application.
+            return RedirectToAction("Index", "Home", new { area = "Mpa" });
+
         }
     }
 }

@@ -30,6 +30,12 @@ namespace DX.Loan.EntityFramework
 
         public virtual IDbSet<CustomerInfo> CustomerInfos { get; set; }
 
+        public virtual IDbSet<FinanceAccount> FinanceAccount { get; set; }
+        public virtual IDbSet<FinanceTradeDetail> FinanceTradeDetail { get; set; }
+        public virtual IDbSet<Order> Order { get; set; }
+
+
+
         public LoanDbContext()
             : base("Default")
         {

@@ -9,7 +9,7 @@ namespace DX.Loan
     {
         public const string LocalizationSourceName = "Loan";
 
-        public const bool MultiTenancyEnabled = true;
+        public const bool MultiTenancyEnabled = false;
 
         /// <summary>
         /// 默认可访问Customer记录天数 , 用于缓存

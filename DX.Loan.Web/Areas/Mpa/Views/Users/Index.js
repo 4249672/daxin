@@ -101,14 +101,14 @@
                     width: '9%',
                     initialSortingDirection: 'DESC'
                 },
-                name: {
-                    title: app.localize('Name'),
-                    width: '10%'
-                },
-                surname: {
-                    title: app.localize('Surname'),
-                    width: '10%'
-                },
+                //name: {
+                //    title: app.localize('Name'),
+                //    width: '10%'
+                //},
+                //surname: {
+                //    title: app.localize('Surname'),
+                //    width: '10%'
+                //},
                 roles: {
                     title: app.localize('Roles'),
                     width: '12%',

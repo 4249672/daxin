@@ -12,6 +12,11 @@ namespace DX.Loan.Web.Areas.Mpa.Models.Trade
         
         public decimal Amount { get; set; }
 
+        /// <summary>
+        /// 交易类型
+        /// </summary>
+        public string TradeType { get; set; }
+
         public List<ComboboxItemDto> Users { get; set; }
 
 

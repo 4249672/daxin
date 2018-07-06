@@ -281,6 +281,17 @@
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
 
+    <text name="Appearance">外观</text>
+    <text name="Maintenance">维护</text>
+    <text name="OrganizationUnits" value="组织机构" />
+    <text name="Caches">缓存</text>
+    <text name="CacheSuccessfullyCleared">缓存清除成功.</text>
+    <text name="AllCachesSuccessfullyCleared">所有缓存清除成功.</text>
+    <text name="ClearAll">清除所有</text>
+    <text name="Clear">清除</text>
+    <text name="CachesHeaderInfo">你可以清除应用程序的缓存.</text>
+    
+    
     <text name="Customer" value="客户信息维护"></text>
     <text name="IdCard" value="身份证号"></text>
     <text name="Age" value="年龄"></text>

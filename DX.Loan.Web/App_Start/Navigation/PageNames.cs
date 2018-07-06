@@ -30,10 +30,14 @@
 
             public static class Customer {
                 public const string CustomerMaintenance = "Administration.CustomerMaintenance";
-
-
-
             }
+
+            public static class Trade
+            {
+                public const string Recharge = "Administration.Recharge";
+            }
+
+
         }
 
         public static class Frontend

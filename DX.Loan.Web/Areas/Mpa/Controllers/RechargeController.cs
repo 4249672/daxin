@@ -39,7 +39,7 @@ namespace DX.Loan.Web.Areas.Mpa.Controllers
             return View(listview);
         }
 
-        [AbpMvcAuthorize(AppPermissions.Pages_Administration_Customer_Create, AppPermissions.Pages_Administration_Customer_Edit)]
+        [AbpMvcAuthorize(AppPermissions.Pages_Administration_Recharge_Create, AppPermissions.Pages_Administration_Recharge_Edit)]
         public async Task<PartialViewResult> CreateModal(int? id)
         {
             return PartialView("_CreateModal");

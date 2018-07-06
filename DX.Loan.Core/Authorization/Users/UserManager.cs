@@ -118,7 +118,7 @@ namespace DX.Loan.Authorization.Users
                 return result;
             }
 
-            user.EmailAddress = string.Empty;
+            //user.EmailAddress = string.Empty;
 
             var tenantId = GetCurrentTenantId();
             if (tenantId.HasValue && !user.TenantId.HasValue)

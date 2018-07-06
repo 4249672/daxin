@@ -8,13 +8,13 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
             _$Form = _modalManager.getModal().find('form[name=CustomerForm]');
+
             _modalManager.getModal()
-                .find('#CreditRating')
+                .find('#TradeType')
                 .selectpicker({
                     iconBase: "fa",
                     tickIcon: "fa fa-check"
                 });
-
             
         };
 
@@ -23,16 +23,34 @@
                 return;
             }
 
-            var customer = _$Form.serializeFormToObject();
-            
+            var charge = _$Form.serializeFormToObject();
             _modalManager.setBusy(true);
-            Serv.createOrUpdateCustomer({ customer: customer }).done(function () {
-                abp.notify.info(app.localize("SavedSuccessfully"));
-                _modalManager.close();
-                abp.event.trigger("app.createRechargeModalSaved");
-            }).always(function () {
-                _modalManager.setBusy(false);
-            });
+
+            var tradeType = $("#TradeType").val();
+            if (tradeType == "1") { //充值
+
+                Serv.createRechargeTrade({ input: charge }).done(function () {
+                    abp.notify.info(app.localize("SavedSuccessfully"));
+                    _modalManager.close();
+                    abp.event.trigger("app.createRechargeModalSaved");
+                }).always(function () {
+                    _modalManager.setBusy(false);
+                });
+
+            } else if (tradeType == "2") {
+                Serv.createDeductionTrade({ input: charge }).done(function () {
+                    abp.notify.info(app.localize("SavedSuccessfully"));
+                    _modalManager.close();
+                    abp.event.trigger("app.createRechargeModalSaved");
+                }).always(function () {
+                    _modalManager.setBusy(false);
+                });
+            }
+
+            
+            
+            
+            
 
         };
     };

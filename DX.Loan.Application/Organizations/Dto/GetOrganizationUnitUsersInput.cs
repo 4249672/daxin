@@ -13,7 +13,8 @@ namespace DX.Loan.Organizations.Dto
         {
             if (string.IsNullOrEmpty(Sorting))
             {
-                Sorting = "user.Name, user.Surname";
+                //Sorting = "user.Name, user.Surname";
+                Sorting = "user.userName";
             }
             else if (Sorting.Contains("userName"))
             {
