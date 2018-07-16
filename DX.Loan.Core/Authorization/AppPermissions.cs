@@ -56,7 +56,13 @@
         public const string Pages_Administration_Order_Edit = "Pages.Administration.Order.Edit";
         public const string Pages_Administration_Order_Delete = "Pages.Administration.Order.Delete";
 
-        
+        //资讯
+        public const string Pages_Administration_Notice = "Pages.Administration.Notice";
+        public const string Pages_Administration_Notice_Create = "Pages.Administration.Notice.Create";
+        public const string Pages_Administration_Notice_Edit = "Pages.Administration.Notice.Edit";
+        public const string Pages_Administration_Notice_Delete = "Pages.Administration.Notice.Delete";
+
+
         //TENANT-SPECIFIC PERMISSIONS
 
         public const string Pages_Tenant_Dashboard = "Pages.Tenant.Dashboard";

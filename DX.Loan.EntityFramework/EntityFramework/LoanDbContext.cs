@@ -34,7 +34,7 @@ namespace DX.Loan.EntityFramework
         public virtual IDbSet<FinanceTradeDetail> FinanceTradeDetail { get; set; }
         public virtual IDbSet<Order> Order { get; set; }
 
-
+        public virtual IDbSet<Notice> Notice { get; set; }
 
         public LoanDbContext()
             : base("Default")
@@ -67,6 +67,9 @@ namespace DX.Loan.EntityFramework
             modelBuilder.Entity<User>().Ignore(a => a.Name);
             modelBuilder.Entity<User>().Ignore(a => a.Surname);
             modelBuilder.Entity<User>().Property(a => a.EmailAddress).IsOptional();
+
+            modelBuilder.Entity<Notice>().Property(p => p.RowVersion).IsRowVersion();
+
         }
 
     }

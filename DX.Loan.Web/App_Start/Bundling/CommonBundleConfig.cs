@@ -17,6 +17,7 @@ namespace DX.Loan.Web.Bundling
             bundles.Add(
                 new ScriptBundle("~/Bundles/Common/js")
                     .IncludeDirectory("~/Common/Scripts", "*.js", true)
+                    .IncludeDirectory("~/Common/Scripts", "MpaCommon.js", true)
                     .ForceOrdered()
                 );
         }

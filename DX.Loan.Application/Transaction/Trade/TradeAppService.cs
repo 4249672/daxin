@@ -14,9 +14,13 @@ using DX.Loan.Trade;
 using DX.Loan.Transaction.Trade.Dto;
 using System.Linq.Dynamic;
 using AutoMapper;
+using Abp.UI;
+using Abp.Authorization;
+using DX.Loan.Authorization;
 
 namespace DX.Loan.Transaction
 {
+    [AbpAuthorize(AppPermissions.Pages_Administration_Recharge)]
     public class TradeAppService : LoanAppServiceBase , ITradeAppService
     {
         private ITradeManager _tradeManager;
@@ -38,8 +42,10 @@ namespace DX.Loan.Transaction
         /// <param name="input"></param>
         /// <returns></returns>
         [UnitOfWork]
+        [AbpAuthorize(AppPermissions.Pages_Administration_Recharge_Create)]
         public bool CreateRechargeTrade(RechargeInput input)
         {
+            input.Amount = Math.Abs(input.Amount);
             return OperTrade(input, TradeType.CZ);
         }
         /// <summary>
@@ -48,10 +54,10 @@ namespace DX.Loan.Transaction
         /// <param name="input"></param>
         /// <returns></returns>
         [UnitOfWork]
+        [AbpAuthorize(AppPermissions.Pages_Administration_Recharge_Create)]
         public bool CreateDeductionTrade(RechargeInput input)
         {
-            if (input.Amount > 0)
-                input.Amount = input.Amount * -1;
+            input.Amount = Math.Abs(input.Amount) * -1;
             return OperTrade(input, TradeType.KF);
         }
         
@@ -59,17 +65,20 @@ namespace DX.Loan.Transaction
             var account = _financeAccount.FirstOrDefault(m => m.UserId == input.userId);
             if (account != null)
             {
+                if (input.Amount < 0 && account.Blance + input.Amount < 0)
+                    throw new UserFriendlyException("账户余额不足, 扣款失败");
+
                 account.Blance = account.Blance + input.Amount;
                 
                 FinanceTradeDetail entity = new FinanceTradeDetail();
                 entity.UserId = input.userId;
                 entity.Amount = input.Amount;
                 entity.FinanceAccountId = account.Id;
-                entity.TradeType = TradeType.CZ.ToString();
+                entity.TradeType = tradeTyppe.ToString();
                 entity.SerialNo = _tradeManager.GenerateTradeNo(tradeTyppe);
                 return _tradeManager.CreateTrade(entity);
             }
-            return false;
+            throw new UserFriendlyException("未找到此账户");
         }
 
         //仅仅针对某个登录用户
@@ -98,10 +107,10 @@ namespace DX.Loan.Transaction
 
         public PagedResultDto<TradeDetailsDto> GetUserTradeRecordList(TradeInput input)
         {
-            var dbSrc = _financeTradeDetail.GetAll().Where(m => m.UserId == input.userID)
+            var dbSrc = _financeTradeDetail.GetAll().WhereIf(input.userID.HasValue,m => m.UserId == input.userID)
                                                     .WhereIf(input.StartDate.HasValue, m => m.CreationTime >= input.StartDate.Value)
                                                     .WhereIf(input.EndDate.HasValue, m => m.CreationTime <= input.EndDate.Value)
-                                                    .WhereIf(input.TradeType.IsNullOrWhiteSpace(), m => m.TradeType == input.TradeType)
+                                                    .WhereIf(!input.TradeType.IsNullOrWhiteSpace(), m => m.TradeType == input.TradeType)
                                                     .OrderBy(input.Sorting);
             var count = dbSrc.Count();
             var lists = dbSrc.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();

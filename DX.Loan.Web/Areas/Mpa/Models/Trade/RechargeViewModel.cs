@@ -19,6 +19,6 @@ namespace DX.Loan.Web.Areas.Mpa.Models.Trade
 
         public List<ComboboxItemDto> Users { get; set; }
 
-
+        public List<ComboboxItemDto> TradeTypeList { get; set; }
     }
 }

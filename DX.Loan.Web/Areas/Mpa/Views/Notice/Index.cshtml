@@ -1,0 +1,78 @@
+﻿@using Abp.Application.Services.Dto
+@using DX.Loan.Web.Areas.Mpa.Models.Common.Modals
+@using Abp.Web.Mvc.Extensions
+@using DX.Loan.Authorization
+@using DX.Loan.Web.Navigation
+@model DX.Loan.Web.Areas.Mpa.Models.Notice.NoticeListViewModel
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Notice.Notices;
+}
+@section Styles
+{
+    @Html.IncludeStyle("/libs/jquery-datetimepicker/jquery.datetimepicker.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Notice/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Notice/Index.js")
+    @Html.IncludeScript("/libs/jquery-datetimepicker/jquery.datetimepicker.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Notice")</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions.Pages_Administration_Notice_Create))
+        {
+            <button id="CreateNewButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("Create")</button>
+        }
+
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div class="form">
+            <form class="horizontal-form" id="frmId">
+                <div class="form-body" enter-key="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">@L("NoticeTitle")</label>
+                                @Html.TextBoxFor(m => m.Model.Title, new
+                                {
+                                    @class = "form-control",
+                                    id = "titleId"
+                                })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">@L("DateRange")</label>
+                                <input type="text" class="form-control date-range-picker" id="dateRange" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin-bottom-10">
+                        <div class="col-sm-6 text-right">
+                            <button id="RefreshButton" class="btn blue"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div id="NoticeTable"></div>
+    </div>
+</div>
+

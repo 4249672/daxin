@@ -348,6 +348,14 @@
     <Compile Include="MultiTenancy\Dto\TenantEditDto.cs" />
     <Compile Include="MultiTenancy\Dto\UpdateTenantFeaturesInput.cs" />
     <Compile Include="Net\MimeTypes\MimeTypeNames.cs" />
+    <Compile Include="Notice\Dto\CreateOrUpdateNoticeInput.cs" />
+    <Compile Include="Notice\Dto\NoticeCacheItem.cs" />
+    <Compile Include="Notice\Dto\NoticeEditDto.cs" />
+    <Compile Include="Notice\Dto\NoticeDto.cs" />
+    <Compile Include="Notice\Dto\SearchNoticeInput.cs" />
+    <Compile Include="Notice\INoticeAppService.cs" />
+    <Compile Include="Notice\INoticeCache.cs" />
+    <Compile Include="Notice\NoticeAppService.cs" />
     <Compile Include="Notifications\Dto\GetUserNotificationsInput.cs" />
     <Compile Include="Notifications\Dto\GetNotificationsOutput.cs" />
     <Compile Include="Notifications\Dto\GetNotificationSettingsOutput.cs" />

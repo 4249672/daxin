@@ -1,4 +1,5 @@
-﻿using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using DX.Loan.Transaction.Order.Dto;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DX.Loan.Transaction.Order
 {
-    public interface IOrderAppService
+    public interface IOrderAppService : IApplicationService
     {
 
         PagedResultDto<GetOrdersListDto> GetOrdersList(GetOrdersInput input);

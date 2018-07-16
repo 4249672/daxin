@@ -7,7 +7,7 @@ namespace DX.Loan.Transaction.Trade.Dto
 {
     public class TradeInput : PagedAndSortedInputDto, IShouldNormalize
     {
-        public long userID { get; set; }
+        public long? userID { get; set; }
 
         public DateTime? StartDate { get; set; }
 

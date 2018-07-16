@@ -34,9 +34,13 @@
 
             public static class Trade
             {
+                public const string Trades = "Administration.Trade";
                 public const string Recharge = "Administration.Recharge";
             }
 
+            public static class Notice {
+                public const string Notices = "Administration.Notice";
+            }
 
         }
 

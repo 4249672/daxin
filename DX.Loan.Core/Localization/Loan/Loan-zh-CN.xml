@@ -281,6 +281,9 @@
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
 
+    <text name="ManagingMembers" value="管理成员" />
+    <text name="ManagingOrganizationTree" value="管理组织机构树" />
+
     <text name="Appearance">外观</text>
     <text name="Maintenance">维护</text>
     <text name="OrganizationUnits" value="组织机构" />
@@ -290,8 +293,8 @@
     <text name="ClearAll">清除所有</text>
     <text name="Clear">清除</text>
     <text name="CachesHeaderInfo">你可以清除应用程序的缓存.</text>
-    
-    
+
+    <text name="BusinessMaintenance" value="业务信息维护"></text>
     <text name="Customer" value="客户信息维护"></text>
     <text name="IdCard" value="身份证号"></text>
     <text name="Age" value="年龄"></text>
@@ -322,8 +325,20 @@
     <text name="RemarkSubmit" value="申请备注"></text>
     <text name="RemarkAudit" value="审核备注"></text>
     <text name="RefNo" value="订单编号"></text>
+    <text name="RechargeReduce" value="充值/扣费"></text>
 
+    <!--Order-->
+    <text name="Order" value="订单"></text>
+    
+    <text name="Notice" value="资讯"></text>
+    <text name="NoticeTitle" value="标题"></text>
+    <text name="ShortTitle" value="短标题"></text>
+    <text name="Author" value="作者"></text>
+    <text name="Prior" value="优先级"></text>
+    <text name="Content" value="内容"></text>
+    <text name="PublicDate" value="发布时间"></text>
 
-
+    <text name="SureDelete" value="确定要删除？"></text>
+    
   </texts>
 </localizationDictionary>

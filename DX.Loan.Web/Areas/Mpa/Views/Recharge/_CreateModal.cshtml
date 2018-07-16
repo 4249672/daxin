@@ -3,20 +3,20 @@
 @using Abp.Application.Services.Dto
 @model DX.Loan.Web.Areas.Mpa.Models.Trade.RechargeViewModel
 
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", L("CreateNew"))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNew")))
 
 <div class="modal-body">
-    <form role="form" name="CustomerForm" novalidate class="form-validation">
+    <form role="form" name="RechargeForm" novalidate class="form-validation">
 
         @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
                 <input class="form-control@(Model.Name.IsNullOrEmpty() ? "" : " edited")" type="text" name="Name" value="@Model.Name" required maxlength="20" />
                 <label>@L("Name")</label>
             </div>*@
 
-        <div class="form-group">
-            <label for="LanguageNameEdit">用户账号</label>
-            @Html.DropDownList(
-                      "userId",
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <label for="">用户账号</label>
+            @Html.DropDownListFor(
+                      m=>m.userId,
                       Model.Users.Select(i => i.ToSelectListItem()),
                       new
                       {
@@ -30,9 +30,7 @@
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
             <label>交易类型</label>
 
-            @Html.DropDownListFor(m => m.TradeType, new List<SelectListItem>() { new SelectListItem() {  Text="",Value= "0" }, new SelectListItem() { Text = "充值", Value = "1" }
-        ,new SelectListItem() {  Text="扣款",Value= "2" }
-        }, new
+            @Html.DropDownListFor(m => m.TradeType, Model.TradeTypeList.Select(i=>i.ToSelectListItem()), new
         {
             @class = "form-control selectpicker",
             @required="",
@@ -41,7 +39,7 @@
         </div>
 
         <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <input type="text" name="Amount" class="form-control" required value="" maxlength="12" />
+            <input type="text" name="Amount" class="form-control onlyPointNum" point="2" negative="0" required value="" maxlength="12" />
             <label>金额</label>
         </div>
 

@@ -25,18 +25,14 @@
         /// 默认可以访问几个月之前的Customser记录
         /// </summary>
         public const int AccessCustomerLimitMonthRange = -3;
-
         
-
         /// <summary>
         /// 一条Customer记录能卖的次数
         /// </summary>
         public const int RecordCanSaleTimes = 6;
 
         #endregion
-
-
-
+        
         //缓存项的名称, 方便查找/设置缓存的时间
         //TradeAppService 的方法 GetUserChargeForUser
         public const string Cache_TradeAppService_Method_UserChargeForUser = "Cache_Method_TradeAppService_UserChargeForUser";
@@ -44,7 +40,11 @@
         //OrderAppService
         public const string Cache_OrderAppService_Method_OrdersList = "Cache_Order_OrdersList";
 
-        
+        public const string Cache_Time_5Min = "Cache_Time_5Min";
+        public const string Cache_Time_10Min = "Cache_Time_10Min";
+        public const string Cache_Time_15Min = "Cache_Time_15Min";
+        public const string Cache_Time_30Min = "Cache_Time_30Min";
+
 
     }
 }

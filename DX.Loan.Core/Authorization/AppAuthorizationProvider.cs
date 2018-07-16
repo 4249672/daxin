@@ -88,6 +88,21 @@ namespace DX.Loan.Authorization
             customers.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Edit, L("Edit"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
             customers.CreateChildPermission(AppPermissions.Pages_Administration_Customer_Delete, L("Delete"), multiTenancySides: _isMultiTenancyEnabled ? MultiTenancySides.Host : MultiTenancySides.Tenant);
 
+            var recharge = administration.CreateChildPermission(AppPermissions.Pages_Administration_Recharge,L("RechargeReduce"));
+            recharge.CreateChildPermission(AppPermissions.Pages_Administration_Recharge_Create, L("Create"));
+            recharge.CreateChildPermission(AppPermissions.Pages_Administration_Recharge_Edit, L("Edit"));
+            recharge.CreateChildPermission(AppPermissions.Pages_Administration_Recharge_Delete, L("Delete"));
+
+            var Order = administration.CreateChildPermission(AppPermissions.Pages_Administration_Order, L("Order"));
+            Order.CreateChildPermission(AppPermissions.Pages_Administration_Order_Create, L("Create"));
+            Order.CreateChildPermission(AppPermissions.Pages_Administration_Order_Edit, L("Edit"));
+            Order.CreateChildPermission(AppPermissions.Pages_Administration_Order_Delete, L("Delete"));
+
+            var Notice = administration.CreateChildPermission(AppPermissions.Pages_Administration_Notice, L("Notice"));
+            Notice.CreateChildPermission(AppPermissions.Pages_Administration_Notice_Create, L("Create"));
+            Notice.CreateChildPermission(AppPermissions.Pages_Administration_Notice_Edit, L("Edit"));
+            Notice.CreateChildPermission(AppPermissions.Pages_Administration_Notice_Delete, L("Delete"));
+
 
         }
 

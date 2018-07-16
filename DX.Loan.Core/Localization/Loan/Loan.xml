@@ -489,5 +489,7 @@
     <text name="UnlockedTenandAdmin">Unlocked admin user for {0}</text>
 
     <text name="CustomerMaintenance">Customer Maintenance</text>
+    <text name="BusinessMaintenance">Business Maintenance</text>
+    <text name="Notice" value="Notice"></text>
   </texts>
 </localizationDictionary>

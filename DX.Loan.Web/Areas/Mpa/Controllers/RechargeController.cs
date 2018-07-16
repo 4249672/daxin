@@ -16,10 +16,12 @@ using DX.Loan.Transaction;
 using DX.Loan.Transaction.Trade.Dto;
 using DX.Loan.Web.Areas.Mpa.Models.Trade;
 using DX.Loan.Authorization.Users;
+using DX.Loan.Authorization.Users.Dto;
+using System.Collections.Generic;
 
 namespace DX.Loan.Web.Areas.Mpa.Controllers
 {
-    [AbpMvcAuthorize(AppPermissions.Pages_Administration_Customer)]
+    [AbpMvcAuthorize(AppPermissions.Pages_Administration_Recharge)]
     public class RechargeController : LoanControllerBase
     {
         private readonly ITradeAppService _tradeAppService;
@@ -32,18 +34,41 @@ namespace DX.Loan.Web.Areas.Mpa.Controllers
         }
         
         // GET: Mpa/Recharge
-        public ActionResult Index(TradeInput input)
+        public async Task<ActionResult> Index(TradeInput input)
         {
-            var list = _tradeAppService.GetUserTradeRecordList(input);
-            RechargeListViewModel listview = new RechargeListViewModel() { List = list };
-            return View(listview);
+            RechargeViewModel model = new RechargeViewModel();
+            model.Users = await GetUserList();
+            model.TradeTypeList = GetTradeType();
+            return View(model);
         }
 
-        [AbpMvcAuthorize(AppPermissions.Pages_Administration_Recharge_Create, AppPermissions.Pages_Administration_Recharge_Edit)]
+        [AbpMvcAuthorize(AppPermissions.Pages_Administration_Recharge_Create)]
         public async Task<PartialViewResult> CreateModal(int? id)
         {
-            return PartialView("_CreateModal");
+            RechargeViewModel model = new RechargeViewModel();
+            
+            var list = await GetUserList();
+            model.Users = list;
+            model.TradeTypeList = GetTradeType();
+
+            return PartialView("_CreateModal",model);
         }
+
+        private async Task<List<ComboboxItemDto>> GetUserList() {
+            var input = new GetUsersInput();
+            var list = await _userAppService.GetUsers(input);
+            var rlist = list.Items.Select(m => new ComboboxItemDto() { DisplayText = m.UserName, Value = m.Id.ToString() }).ToList();
+            rlist.Insert(0, new ComboboxItemDto("", ""));
+            return rlist;
+        }
+
+        private List<ComboboxItemDto> GetTradeType() {
+            return new List<ComboboxItemDto>() { new ComboboxItemDto() {  DisplayText="",Value= "" },
+                                                new ComboboxItemDto() { DisplayText = "充值", Value = "CZ" },
+                                                new ComboboxItemDto() {  DisplayText="扣款",Value= "KF" }
+                                               };
+        }
+
 
         //public async Task<PartialViewResult> UsersModal(long id)
         //{

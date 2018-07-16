@@ -1,4 +1,5 @@
-﻿using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using DX.Loan.Transaction.Trade.Dto;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DX.Loan.Transaction
 {
-    public interface ITradeAppService
+    public interface ITradeAppService : IApplicationService
     {
         /// <summary>
         /// 充值

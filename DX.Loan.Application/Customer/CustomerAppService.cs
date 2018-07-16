@@ -21,6 +21,7 @@ using AutoMapper;
 
 namespace DX.Loan.Customer
 {
+    [AbpAuthorize(AppPermissions.Pages_Administration_Customer)]
     public class CustomerAppService: LoanAppServiceBase, ICustomerAppService
     {
         private IRepository<CustomerInfo,long> _customerRespository;
@@ -128,8 +129,7 @@ namespace DX.Loan.Customer
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Delete)]
         public void DeleteCustomer(EntityDto input)
         {
-            var entity = _customerRespository.Get(input.Id);
-            _customerRespository.Delete(entity);
+            _customerRespository.Delete(input.Id);
         }
 
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Create, AppPermissions.Pages_Administration_Customer_Edit)]

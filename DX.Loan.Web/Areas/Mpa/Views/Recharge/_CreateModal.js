@@ -7,10 +7,10 @@
 
         this.init = function (modalManager) {
             _modalManager = modalManager;
-            _$Form = _modalManager.getModal().find('form[name=CustomerForm]');
+            _$Form = _modalManager.getModal().find('form[name=RechargeForm]');
 
             _modalManager.getModal()
-                .find('#TradeType')
+                .find('.selectpicker')
                 .selectpicker({
                     iconBase: "fa",
                     tickIcon: "fa fa-check"
@@ -25,11 +25,11 @@
 
             var charge = _$Form.serializeFormToObject();
             _modalManager.setBusy(true);
+            
+            var tradeType = charge.TradeType;
+            if (tradeType == "CZ") { //充值
 
-            var tradeType = $("#TradeType").val();
-            if (tradeType == "1") { //充值
-
-                Serv.createRechargeTrade({ input: charge }).done(function () {
+                Serv.createRechargeTrade(charge).done(function () {
                     abp.notify.info(app.localize("SavedSuccessfully"));
                     _modalManager.close();
                     abp.event.trigger("app.createRechargeModalSaved");
@@ -37,8 +37,8 @@
                     _modalManager.setBusy(false);
                 });
 
-            } else if (tradeType == "2") {
-                Serv.createDeductionTrade({ input: charge }).done(function () {
+            } else if (tradeType == "KF") {
+                Serv.createDeductionTrade(charge).done(function () {
                     abp.notify.info(app.localize("SavedSuccessfully"));
                     _modalManager.close();
                     abp.event.trigger("app.createRechargeModalSaved");

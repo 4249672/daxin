@@ -52,17 +52,7 @@ namespace Common
             return Boolean.TryParse(s, out result) ? result : defaultValue;
         }
 
-        public static Nullable<DateTime> AsDateTimeOfNull(this string s)
-        {
-            if (string.IsNullOrEmpty(s))
-                return null;
-
-            DateTime res;
-            if (DateTime.TryParse(s, out res))
-                return res;
-
-            return null;
-        }
+        
 
         /// <summary>
 		/// 首字母转大写

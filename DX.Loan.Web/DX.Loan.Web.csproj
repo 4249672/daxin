@@ -611,9 +611,12 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
+    <Content Include="Areas\Mpa\Common\Scripts\MpaCommon.js" />
     <Content Include="Areas\Mpa\Common\Scripts\readme.txt" />
     <Content Include="Areas\Mpa\Views\Customer\Index.js" />
     <Content Include="Areas\Mpa\Views\Customer\_CreateOrEditModal.js" />
+    <Content Include="Areas\Mpa\Views\Notice\Index.js" />
+    <Content Include="Areas\Mpa\Views\Notice\_CreateOrEditModal.js" />
     <Content Include="Areas\Mpa\Views\Recharge\Index.js" />
     <Content Include="Areas\Mpa\Views\Recharge\_CreateModal.js" />
     <Content Include="Common\Images\app-logo-small.png" />
@@ -1042,6 +1045,11 @@
     <Content Include="libs\jcrop\js\jquery.Jcrop.js" />
     <Content Include="libs\jcrop\js\jquery.Jcrop.min.js" />
     <Content Include="libs\jquery-ajax-form\jquery.form.js" />
+    <Content Include="libs\jquery-datetimepicker\jquery.datetimepicker.css" />
+    <Content Include="libs\jquery-datetimepicker\jquery.datetimepicker.js" />
+    <Content Include="libs\jquery-datetimepicker\jquery.datetimepicker.min.js" />
+    <Content Include="libs\jquery-datetimepicker\jquery.js" />
+    <Content Include="libs\jquery-datetimepicker\modal.js" />
     <Content Include="libs\jquery-jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
     <Content Include="libs\jquery-jtable\extensions\jquery.jtable.aspnetpagemethods.min.js" />
     <Content Include="libs\jquery-jtable\extensions\jquery.jtable.record-actions.js" />
@@ -3060,6 +3068,8 @@
     <Content Include="libs\bootstrap-chinese-region\sql_areas_names.json" />
     <Content Include="Areas\Mpa\Views\Recharge\Index.cshtml" />
     <Content Include="Areas\Mpa\Views\Recharge\_CreateModal.cshtml" />
+    <Content Include="Areas\Mpa\Views\Notice\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\Notice\_CreateOrEditModal.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -3144,9 +3154,13 @@
   <ItemGroup>
     <Compile Include="Areas\Mpa\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Mpa\Controllers\CustomerMaintenanceController.cs" />
+    <Compile Include="Areas\Mpa\Controllers\NoticeController.cs" />
     <Compile Include="Areas\Mpa\Controllers\RechargeController.cs" />
     <Compile Include="Areas\Mpa\Models\Customer\CustomerListViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Customer\CustomerViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Notice\NoticeEditViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Notice\NoticeListViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\Notice\NoticeViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Trade\RechargeListViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Trade\RechargeViewModel.cs" />
     <Compile Include="Areas\Mpa\Models\Trade\UsersListViewModel.cs" />

@@ -35,13 +35,29 @@ namespace DX.Loan.Web.Areas.Mpa.Startup
                     icon: "icon-home",
                     requiredPermissionName: AppPermissions.Pages_Tenant_Dashboard
                     )
-                ).AddItem(new MenuItemDefinition(
-                    PageNames.App.Customer.CustomerMaintenance,
-                    L("Customer"),
-                    url: "Mpa/Customer",
-                    icon: "glyphicon glyphicon-book",
-                    requiredPermissionName: AppPermissions.Pages_Administration_Customer
-                    )
+                )
+                .AddItem(new MenuItemDefinition(
+                    PageNames.App.Trade.Trades,
+                    L("BusinessMaintenance"),
+                    icon: "icon-wrench"
+                    ).AddItem(new MenuItemDefinition(
+                        PageNames.App.Customer.CustomerMaintenance,
+                        L("Customer"),
+                        url: "Mpa/Customer",
+                        icon: "glyphicon glyphicon-book",
+                        requiredPermissionName: AppPermissions.Pages_Administration_Customer))
+                     .AddItem(new MenuItemDefinition(
+                        PageNames.App.Trade.Recharge,
+                        L("Recharge"),
+                        url: "Mpa/Recharge",
+                        icon: "glyphicon glyphicon-book",
+                        requiredPermissionName: AppPermissions.Pages_Administration_Recharge))
+                    .AddItem(new MenuItemDefinition(
+                        PageNames.App.Notice.Notices,
+                        L("Notice"),
+                        url: "Mpa/Notice",
+                        icon: "glyphicon glyphicon-book",
+                        requiredPermissionName: AppPermissions.Pages_Administration_Notice))
                 )
                 //.AddItem(new MenuItemDefinition(
                 //    PageNames.App.Tenant.Test,//一个常量，控制菜单是否被选中

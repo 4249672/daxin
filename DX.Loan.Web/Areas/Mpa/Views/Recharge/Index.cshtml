@@ -3,8 +3,8 @@
 @using Abp.Web.Mvc.Extensions
 @using DX.Loan.Authorization
 @using DX.Loan.Web.Navigation
-@model DX.Loan.Web.Areas.Mpa.Models.Customer.CustomerListViewModel
 
+@model DX.Loan.Web.Areas.Mpa.Models.Trade.RechargeViewModel
 @{
     ViewBag.CurrentPageName = PageNames.App.Trade.Recharge;
 }
@@ -15,7 +15,7 @@
 }
 @section Scripts
 {
-    @Html.IncludeScript("~/Areas/Mpa/Views/Recharge/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Recharge/_CreateModal.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/Recharge/Index.js")
 
 }
@@ -39,25 +39,61 @@
     </div>
 </div>
 <div class="portlet light margin-bottom-0">
-    <div class="portlet-title portlet-title-filter">
-        <div class="inputs inputs-full-width">
-            <div class="portlet-input">
-                <form>
-                    <div class="row">
-                        <div class="col-xs-6">
+    <div class="portlet-body ">
+        <div class="form">
+            <form class="horizontal-form" id="frmId">
+                <div class="form-body" enter-key="">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">@L("TradeType")</label>
+                                    @Html.DropDownListFor(m => m.TradeType, Model.TradeTypeList.Select(i=>i.ToSelectListItem()), new
+                                                        {
+                                                            @class = "form-control",
+                                                            id= "TradeType"
+                                                        })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">@L("DateRange")</label>
+                                    <input type="text" class="form-control date-range-picker" id="dateRange" />
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="col-xs-6">
-                            <div class="form-group">
-                                <button id="RefreshButton" class="btn btn-default" style="display: block; width: 100%"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+
+                        <div class="row margin-bottom-10">
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(
+                                      m=>m.userId, Model.Users.Select(i => i.ToSelectListItem()),
+                                      new
+                                      {
+                                          @class = "form-control selectpicker",
+                                          data_live_search = "true"
+                                      })
+
+
+
+
+
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+
+                        <div class="row margin-bottom-10">
+                            <div class="col-sm-6 text-right">
+                                <button id="RefreshButton" class="btn blue"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                            </div>
+                        </div>
+                        
+                    
+                </div>
+            </form>
         </div>
-    </div>
-    <div class="portlet-body">
+
+
+
         <div id="RechargeTable"></div>
     </div>
 </div>
