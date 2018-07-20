@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace DX.Loan.Customer.Dto
 {
@@ -22,6 +23,8 @@ namespace DX.Loan.Customer.Dto
 
         [Range(1, 100)]
         public int? maxAge { get; set; }
+
+        public string Area { get; set; }
 
         //芝麻分
         [Range(0, 1200)]
@@ -39,6 +42,11 @@ namespace DX.Loan.Customer.Dto
             if (startDate.HasValue && endDate.HasValue && startDate.Value > endDate.Value)
                 context.Results.Add(new ValidationResult("结束日期必须大于或等于开始日期"));
             
+            if(minAge.HasValue && maxAge.HasValue && maxAge < minAge)
+                context.Results.Add(new ValidationResult("最大年龄必须大于或等于最小年龄"));
+
+            if (minScore.HasValue && maxScore.HasValue && maxScore < minScore)
+                context.Results.Add(new ValidationResult("最大芝麻分必须大于或等于最小芝麻分"));
         }
 
         public void Normalize()
@@ -48,7 +56,7 @@ namespace DX.Loan.Customer.Dto
             if (!startDate.HasValue)
                 startDate = DateTime.Now.AddMonths(AppConsts.AccessCustomerLimitMonthRange);
             if (!endDate.HasValue)
-                endDate = DateTime.Now;
+                endDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
         }
 
     }

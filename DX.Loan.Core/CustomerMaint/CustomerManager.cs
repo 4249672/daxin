@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using Common;
 using Abp.Runtime.Caching;
 using Abp.AutoMapper;
+using System.Data.SqlClient;
+using DX.Loan.SqlExecuter;
 
 namespace DX.Loan.CustomerMaint
 {
@@ -20,11 +22,13 @@ namespace DX.Loan.CustomerMaint
         private IRepository<CustomerInfo, long> _customerRepository;
         public ILogger Logger { get; set; }
         public ICacheManager _cacheManager;
+        private readonly ISqlExecuter _sqlExecuter;
 
-        public CustomerManager(IRepository<CustomerInfo, long> customerRepository, ICacheManager cacheManager) {
+        public CustomerManager(IRepository<CustomerInfo, long> customerRepository, ICacheManager cacheManager, ISqlExecuter sqlExecuter) {
             _customerRepository = customerRepository;
             Logger = NullLogger.Instance;
             _cacheManager = cacheManager;
+            _sqlExecuter = sqlExecuter;
         }
 
         public CustomerInfo GetCustomer(long Id)
@@ -65,11 +69,22 @@ namespace DX.Loan.CustomerMaint
 
             string cacheKey = "global_CustomerDBList";
             var list = _cacheManager.GetCache<string, List<CustomerInfo>>(LoanConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
-                .Get(cacheKey, () => GetCustomersList(condition).ToList().MapTo<List<CustomerInfo>>());
+                .Get(cacheKey, () => {
+                    List<SqlParameter> paramList = new List<SqlParameter>();
+                    paramList.Add(new SqlParameter("@StartDate", startDate));
+                    paramList.Add(new SqlParameter("@EndDate", endDate));
+                    paramList.Add(new SqlParameter("@Area", ""));
+                    paramList.Add(new SqlParameter("@Age_Max", ""));
+                    paramList.Add(new SqlParameter("@Age_Min", ""));
+                    var q = _sqlExecuter.SqlQuery<CustomerInfo>("dbo.SP_SEARCH_CUSTOMER_FOR_USER @StartDate,@EndDate,@Area,@Age_Max,@Age_Min", paramList.ToArray());
+                    return q.ToList();
+                }
+                );
             return list;
 
+
+
+
         }
-
-
     }
 }

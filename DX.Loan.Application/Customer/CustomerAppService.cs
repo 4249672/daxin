@@ -34,44 +34,10 @@ namespace DX.Loan.Customer
             _cacheManager = cacheManager;
         }
 
-        #region 给客户查看的
-
-        public PagedResultDto<CustomerForUserPageDto> GetCustomersForUserByList(SearchCustomerForUserInput input) {
-            
-            List<CustomerInfo> cacheList = _customerManage.GetCacheCustomerForUserByList();
-
-            var count = cacheList.Count();
-            var lists = cacheList.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
-
-            var dtoList = lists.MapTo<List<CustomerForUserPageDto>>();
-            
-            var userId = ","+AbpSession.GetUserId().ToString() + ",";
-            Parallel.ForEach(dtoList, m => {
-                var ids = "," + m.BuyUserIds;
-                if (ids.IndexOf(userId) != -1)
-                    m.ShowForUserStatus = CustomerStatus.C.ToString();
-            });
-            return new PagedResultDto<CustomerForUserPageDto>(count, dtoList);
-        }
         
-        //private List<CustomerForUserPageDto> GetCacheCustomerForUserByList() {
-
-        //    var startDate = DateTime.Now.AddDays(AppConsts.AccessCustomerLimitDayRange).ToString("yyyy-MM-dd 00:00:00").AsDateTimeOfNull();
-        //    var endDate = DateTime.Now.ToString("yyyy-MM-dd 23:59:59").AsDateTimeOfNull();
-            
-        //    CustomerSearchCondition condition = new CustomerSearchCondition() { CreationTimeFrom = startDate , CreationTimeTo = endDate };
-            
-        //    string cacheKey = "Global_CustomerDBList";
-        //    var list = _cacheManager.GetCache<string, List<CustomerForUserPageDto>>(AppConsts.Cache_CustomerAppService_Method_CacheCustomerForUserByList)
-        //        .Get(cacheKey, () =>_customerManage.GetCustomersList(condition).ToList().MapTo<List<CustomerForUserPageDto>>());
-        //    return list;
-
-        //}
-        
-        #endregion
         
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer)]
-        public ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input) {
+        public PagedResultDto<CustomerDto> GetCustomers(SearchCustomerInput input) {
 
             var list = _customerRespository.GetAll()
                 .WhereIf(!string.IsNullOrEmpty(input.Name),m=>m.Name.Contains(input.Name))
@@ -81,9 +47,12 @@ namespace DX.Loan.Customer
                 .WhereIf(input.maxScore.HasValue, m => m.SesameScore <= input.maxScore)
                 .WhereIf(input.startDate.HasValue, m => m.ApplicationDate >= input.startDate) //申请时间
                 .WhereIf(input.endDate.HasValue, m => m.ApplicationDate <= input.endDate)
-                .OrderBy(m=>m.CreationTime).ToList();
+                .OrderBy(m=>m.CreationTime);
 
-            return new ListResultDto<CustomerDto>(list.MapTo<List<CustomerDto>>());
+            var count = list.Count();
+            var lists = list.Skip(input.SkipCount).Take(input.MaxResultCount).MapTo<List<CustomerDto>>();
+
+            return new PagedResultDto<CustomerDto>(count, lists);
         }
         [AbpAuthorize(AppPermissions.Pages_Administration_Customer_Create)]
         protected void CreateCustomer(CreateOrUpdateCustomerInput input)

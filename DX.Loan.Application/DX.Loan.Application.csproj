@@ -208,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer\CustomerAppService.cs" />
+    <Compile Include="Customer\CustomerClientAppService.cs" />
     <Compile Include="Customer\Dto\CreateOrUpdateCustomerInput.cs" />
     <Compile Include="Customer\Dto\CustomerCreateInput.cs" />
     <Compile Include="Customer\Dto\CustomerDto.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Customer\Dto\SearchCustomerForUserInput.cs" />
     <Compile Include="Customer\Dto\SearchCustomerInput.cs" />
     <Compile Include="Customer\ICustomerAppService.cs" />
+    <Compile Include="Customer\ICustomerClientAppService.cs" />
     <Compile Include="DtoMapper\IDtoMapping.cs" />
     <Compile Include="LoanApplicationModule.cs" />
     <Compile Include="LoanAppServiceBase.cs" />

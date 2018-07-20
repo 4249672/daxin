@@ -38,7 +38,7 @@ namespace DX.Loan.Transaction
         }
 
         
-        [UnitOfWork(isTransactional:true)]
+        //[UnitOfWork(isTransactional:true)]
         public async Task<bool> CreateOrder(CreateOrderInput input)
         {
             long userId = AbpSession.GetUserId();

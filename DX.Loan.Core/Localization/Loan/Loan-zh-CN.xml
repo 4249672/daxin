@@ -339,6 +339,7 @@
     <text name="PublicDate" value="发布时间"></text>
 
     <text name="SureDelete" value="确定要删除？"></text>
-    
+    <text name="UpdateByOther" value="此记录已被其他人修改, 请刷新后重试"></text>
+  
   </texts>
 </localizationDictionary>

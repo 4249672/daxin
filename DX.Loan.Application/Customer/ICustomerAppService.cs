@@ -8,16 +8,13 @@ namespace DX.Loan.Customer
 {
     public interface ICustomerAppService : IApplicationService
     {
-
-        ListResultDto<CustomerDto> GetCustomers(SearchCustomerInput input);
+        PagedResultDto<CustomerDto> GetCustomers(SearchCustomerInput input);
 
         void CreateOrUpdateCustomer(CreateOrUpdateCustomerInput input);
 
         CustomerEditDto GetCustomerForEdit(NullableIdDto input);
 
         void DeleteCustomer(EntityDto input);
-
-        PagedResultDto<CustomerForUserPageDto> GetCustomersForUserByList(SearchCustomerForUserInput input);
-
+        
     }
 }

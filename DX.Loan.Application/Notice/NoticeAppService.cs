@@ -19,22 +19,26 @@ using Abp.Runtime.Caching;
 using Abp.Runtime.Session;
 using AutoMapper;
 using System.Linq.Dynamic;
+using Abp.UI;
+using Abp.Domain.Uow;
 
 namespace DX.Loan
 {
     
-    public class NoticeAppService : INoticeAppService
+    public class NoticeAppService : LoanAppServiceBase , INoticeAppService
     {
         private IRepository<Notice, int> _noticeRespository;
         private readonly ICacheManager _cacheManager;
         private readonly INoticeCache _noticeCache;
         private readonly string _cacheAppName = "NoticeAppService_Cache";
         private readonly string _cacheNoticeListForUser = "NoticeAppService_GetNoticesListForUser";
+        private IUnitOfWorkManager _unitOfWorkManager;
 
-        public NoticeAppService(IRepository<Notice, int>  noticeRespository , ICacheManager cacheManager, INoticeCache noticeCache) {
+        public NoticeAppService(IRepository<Notice, int>  noticeRespository , ICacheManager cacheManager, INoticeCache noticeCache, IUnitOfWorkManager unitOfWorkManager) {
             _noticeRespository = noticeRespository;
             _cacheManager = cacheManager;
             _noticeCache = noticeCache;
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         [AbpAuthorize(AppPermissions.Pages_Administration_Notice_Create, AppPermissions.Pages_Administration_Notice_Edit)]
@@ -50,13 +54,18 @@ namespace DX.Loan
         private void CreateNotice(CreateOrUpdateNoticeInput input)
         {
             Notice model = input.notice.MapTo<Notice>();
-            _noticeRespository.InsertAsync(model);
+            _noticeRespository.Insert(model);
         }
 
         private void UpdateNotice(CreateOrUpdateNoticeInput input)
         {
-            Notice model = input.notice.MapTo<Notice>();
-            _noticeRespository.UpdateAsync(model);
+            try {
+                Notice model = input.notice.MapTo<Notice>();
+                 _noticeRespository.Update(model);
+                _unitOfWorkManager.Current.SaveChanges();
+            } catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex) {
+                throw new UserFriendlyException(L("UpdateByOther"));
+            }
         }
 
         [AbpAuthorize(AppPermissions.Pages_Administration_Notice_Delete)]
@@ -77,7 +86,7 @@ namespace DX.Loan
             else
                 return new NoticeEditDto();
         }
-
+        
         [AbpAuthorize(AppPermissions.Pages_Administration_Notice)]
         public PagedResultDto<NoticeDto> GetNotices(SearchNoticeInput input)
         {

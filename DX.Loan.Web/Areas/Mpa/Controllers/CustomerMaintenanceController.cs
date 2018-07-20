@@ -14,13 +14,17 @@ using DX.Loan.Web.Controllers;
 
 namespace DX.Loan.Web.Areas.Mpa.Controllers
 {
+    //仅用户界面的操作
+
     //[AbpMvcAuthorize(AppPermissions.Pages_Administration_CustomerMaint)]
     public class CustomerMaintenanceController : LoanControllerBase
     {
-        // GET: Mpa/CustomerMaintenance
+        
         public ActionResult Index()
         {
             return View();
         }
+        
+
     }
 }

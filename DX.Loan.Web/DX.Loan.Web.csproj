@@ -613,6 +613,7 @@
     <Content Include="App\host\views\tenants\featuresModal.js" />
     <Content Include="Areas\Mpa\Common\Scripts\MpaCommon.js" />
     <Content Include="Areas\Mpa\Common\Scripts\readme.txt" />
+    <Content Include="Areas\Mpa\Views\CustomerMaintenance\Index.js" />
     <Content Include="Areas\Mpa\Views\Customer\Index.js" />
     <Content Include="Areas\Mpa\Views\Customer\_CreateOrEditModal.js" />
     <Content Include="Areas\Mpa\Views\Notice\Index.js" />

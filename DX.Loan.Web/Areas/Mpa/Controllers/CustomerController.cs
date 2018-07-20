@@ -16,6 +16,8 @@ using DX.Loan.Web.Areas.Mpa.Models.Customer;
 
 namespace DX.Loan.Web.Areas.Mpa.Controllers
 {
+    //管理员操作的
+
     [AbpMvcAuthorize(AppPermissions.Pages_Administration_Customer)]
     public class CustomerController : LoanControllerBase
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace DX.Loan.Customer.Dto
     /// <summary>
     /// 显示给用户的列表
     /// </summary>
+    [AutoMapFrom(typeof(CustomerInfo))]
     public class CustomerForUserPageDto
     {
         public long Id { get; set; }
@@ -52,5 +54,11 @@ namespace DX.Loan.Customer.Dto
 
         //购买人的ID , 不需要显示到DTO
         public string BuyUserIds { get; set; }
+
+        /// <summary>
+        /// timespan, 后台通过队列批量处理时的标示值，相当于锁表
+        /// </summary>
+        public long BatchTimeSpan { get; set; }
+
     }
 }
